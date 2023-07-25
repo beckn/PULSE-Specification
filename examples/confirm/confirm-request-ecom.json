@@ -59,12 +59,14 @@
               "email": "john.doe@example.com"
             }
           },
-          "xinput": {
-            "form_response": {
-              "status": true,
-              "submission_id": "c844d5f4-29c3-4398-b594-8b4716ef5dbf"
+          "stops":[
+            {
+              "authorization": {
+                "type": "OTP",
+                "token": "520853"
+              }
             }
-          },
+          ],
           "tags": [
             {
               "descriptor": {
@@ -75,19 +77,25 @@
                   "descriptor": {
                     "name": "category"
                   },
-                  "value": "Insurance"
+                  "value": "E-Commerce"
                 },
                 {
                   "descriptor": {
                     "name": "details"
                   },
-                  "value": "Insurance payout rejected to the complainant"
+                  "value": "Delivered Bluetooth speaker not as shown on the website"
                 },
                 {
                   "descriptor": {
-                    "name": "claim amount"
+                    "name": "purchase price"
                   },
-                  "value": "50000"
+                  "value": "3500"
+                },
+                {
+                  "descriptor": {
+                    "name": "product link"
+                  },
+                  "value": "https://hbo.com/electronics/speakers/ship-bt002.html"
                 },
                 {
                   "descriptor": {
@@ -106,25 +114,25 @@
                   "descriptor": {
                     "name": "name"
                   },
-                  "value": "Secure Insurance Co"
+                  "value": "WS Retail"
                 },
                 {
                   "descriptor": {
                     "name": "contact person"
                   },
-                  "value": "Alisha Sharma"
+                  "value": "Adam Da Keally"
                 },
                 {
                   "descriptor": {
                     "name": "contact details"
                   },
-                  "value": "alisha.sharma@example.com"
+                  "value": "adam.keally@example.com"
                 },
                 {
                   "descriptor": {
                     "name": "address"
                   },
-                  "value": "456, Insurance Avenue, City XYZ, State ABC"
+                  "value": "456, ECom Avenue, City XYZ, State ABC"
                 }
               ]
             }

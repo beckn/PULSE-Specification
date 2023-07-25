@@ -12,7 +12,7 @@ paths:
       tags:
         - Beckn Provider Platform (BPP)
         - Beckn Gateway (BG)
-      description: This allows the customer to search for Online Dispute Resolution services.
+      description: This allows the customer to search for Online Dispute Resolution Services.
       requestBody:
         content:
           application/json:
@@ -63,7 +63,7 @@ paths:
     post:
       tags:
         - Beckn Provider Platform (BPP)
-      description: BAP declares the customer's cart (or equivalent) created by selecting objects from the catalog
+      description: Customer chooses a provider and the dispute resolution service they require.
       requestBody:
         content:
           application/json:
@@ -118,7 +118,7 @@ paths:
     post:
       tags:
         - Beckn Provider Platform (BPP)
-      description: Initialize an order by providing billing and/or shipping details
+      description: Initialize the order for the dispute by providing essential details about the parties, documents and nature of the disagreement.
       requestBody:
         content:
           application/json:
@@ -173,7 +173,7 @@ paths:
     post:
       tags:
         - Beckn Provider Platform (BPP)
-      description: Initialize an order by providing billing and/or shipping details
+      description: Confirms filing of the dispute by agreeing to the terms and conditions.
       requestBody:
         content:
           application/json:
@@ -228,7 +228,7 @@ paths:
     post:
       tags:
         - Beckn Provider Platform (BPP)
-      description: Fetch the latest order object
+      description: Fetch the latest status of the dispute.
       requestBody:
         content:
           application/json:
@@ -279,69 +279,11 @@ paths:
                     $ref: '#/components/schemas/Error'
                 required:
                   - message
-  /track:
-    post:
-      tags:
-        - Beckn Provider Platform (BPP)
-      description: Track an active order
-      requestBody:
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                context:
-                  allOf:
-                    - $ref: '#/components/schemas/Context'
-                    - properties:
-                        action:
-                          enum:
-                            - track
-                      required:
-                        - action
-                message:
-                  type: object
-                  properties:
-                    order_id:
-                      $ref: '#/components/schemas/Order/properties/id'
-                    callback_url:
-                      type: string
-                      format: uri
-                  required:
-                    - order_id
-              required:
-                - context
-                - message
-      responses:
-        '200':
-          description: Acknowledgement of message received after successful validation of schema and signature
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  message:
-                    type: object
-                    properties:
-                      ack:
-                        allOf:
-                          - $ref: '#/components/schemas/Ack'
-                          - properties:
-                              status:
-                                enum:
-                                  - ACK
-                                  - NACK
-                    required:
-                      - ack
-                  error:
-                    $ref: '#/components/schemas/Error'
-                required:
-                  - message
   /cancel:
     post:
       tags:
         - Beckn Provider Platform (BPP)
-      description: Cancel an order
+      description: Cancel the dispute.
       requestBody:
         content:
           application/json:
@@ -400,7 +342,7 @@ paths:
     post:
       tags:
         - Beckn Provider Platform (BPP)
-      description: Remove object
+      description: Update the details of the dispute.
       requestBody:
         content:
           application/json:
@@ -457,66 +399,11 @@ paths:
                     $ref: '#/components/schemas/Error'
                 required:
                   - message
-  /rating:
-    post:
-      tags:
-        - Beckn Provider Platform (BPP)
-      description: Provide feedback on a service
-      requestBody:
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                context:
-                  allOf:
-                    - $ref: '#/components/schemas/Context'
-                    - properties:
-                        action:
-                          enum:
-                            - rating
-                      required:
-                        - action
-                message:
-                  type: object
-                  properties:
-                    ratings:
-                      type: array
-                      items:
-                        $ref: '#/components/schemas/Rating'
-              required:
-                - context
-                - message
-      responses:
-        '200':
-          description: Acknowledgement of message received after successful validation of schema and signature
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  message:
-                    type: object
-                    properties:
-                      ack:
-                        allOf:
-                          - $ref: '#/components/schemas/Ack'
-                          - properties:
-                              status:
-                                enum:
-                                  - ACK
-                                  - NACK
-                    required:
-                      - ack
-                  error:
-                    $ref: '#/components/schemas/Error'
-                required:
-                  - message
   /support:
     post:
       tags:
         - Beckn Provider Platform (BPP)
-      description: Contact support
+      description: Contact support for the dispute.
       requestBody:
         content:
           application/json:
@@ -570,7 +457,7 @@ paths:
       tags:
         - Beckn Application Platform (BAP)
         - Beckn Gateway (BG)
-      description: BPP sends its catalog in response to a search request.
+      description: Provider sends its catalog of services in response to a search request.
       requestBody:
         content:
           application/json:
@@ -626,7 +513,7 @@ paths:
     post:
       tags:
         - Beckn Application Platform (BAP)
-      description: Send draft order object with quoted price for selected items
+      description: Send draft dispute order with details of the selected service.
       requestBody:
         content:
           application/json:
@@ -680,7 +567,7 @@ paths:
     post:
       tags:
         - Beckn Application Platform (BAP)
-      description: Send order object with payment details updated
+      description: Send dispute order object with details updated and a form to accept terms and conditions.
       requestBody:
         content:
           application/json:
@@ -736,7 +623,7 @@ paths:
     post:
       tags:
         - Beckn Application Platform (BAP)
-      description: Send active order object
+      description: Send active order dispute order with the details.
       requestBody:
         content:
           application/json:
@@ -788,67 +675,11 @@ paths:
                     $ref: '#/components/schemas/Error'
                 required:
                   - message
-  /on_track:
-    post:
-      tags:
-        - Beckn Application Platform (BAP)
-      description: Send tracking details of an active order
-      requestBody:
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                context:
-                  allOf:
-                    - $ref: '#/components/schemas/Context'
-                    - properties:
-                        action:
-                          enum:
-                            - on_track
-                      required:
-                        - action
-                message:
-                  type: object
-                  properties:
-                    tracking:
-                      $ref: '#/components/schemas/Tracking'
-                  required:
-                    - tracking
-                error:
-                  $ref: '#/components/schemas/Error'
-              required:
-                - context
-      responses:
-        '200':
-          description: Acknowledgement of message received after successful validation of schema and signature
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  message:
-                    type: object
-                    properties:
-                      ack:
-                        allOf:
-                          - $ref: '#/components/schemas/Ack'
-                          - properties:
-                              status:
-                                enum:
-                                  - ACK
-                                  - NACK
-                    required:
-                      - ack
-                  error:
-                    $ref: '#/components/schemas/Error'
-                required:
-                  - message
   /on_cancel:
     post:
       tags:
         - Beckn Application Platform (BAP)
-      description: Send cancellation request_id with reasons list in case of cancellation request. Else send cancelled order object
+      description: The dispute is cancelled.
       requestBody:
         content:
           application/json:
@@ -904,7 +735,7 @@ paths:
     post:
       tags:
         - Beckn Application Platform (BAP)
-      description: Returns updated service with updated runtime object
+      description: Returns updated dispute object.
       requestBody:
         content:
           application/json:
@@ -960,7 +791,7 @@ paths:
     post:
       tags:
         - Beckn Application Platform (BAP)
-      description: Fetch the status of a Service
+      description: Fetch the status of the dispute.
       requestBody:
         content:
           application/json:
@@ -1012,68 +843,11 @@ paths:
                     $ref: '#/components/schemas/Error'
                 required:
                   - message
-  /on_rating:
-    post:
-      tags:
-        - Beckn Application Platform (BAP)
-      description: Provide feedback on a service
-      requestBody:
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                context:
-                  allOf:
-                    - $ref: '#/components/schemas/Context'
-                    - properties:
-                        action:
-                          enum:
-                            - on_rating
-                      required:
-                        - action
-                message:
-                  type: object
-                  properties:
-                    feedback_form:
-                      description: A feedback form to allow the user to provide additional information on the rating provided
-                      allOf:
-                        - $ref: '#/components/schemas/XInput'
-                error:
-                  $ref: '#/components/schemas/Error'
-              required:
-                - context
-                - message
-      responses:
-        '200':
-          description: Acknowledgement of message received after successful validation of schema and signature
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  message:
-                    type: object
-                    properties:
-                      ack:
-                        allOf:
-                          - $ref: '#/components/schemas/Ack'
-                          - properties:
-                              status:
-                                enum:
-                                  - ACK
-                                  - NACK
-                    required:
-                      - ack
-                  error:
-                    $ref: '#/components/schemas/Error'
-                required:
-                  - message
   /on_support:
     post:
       tags:
         - Beckn Application Platform (BAP)
-      description: Contact Support
+      description: Provides Support
       requestBody:
         content:
           application/json:
