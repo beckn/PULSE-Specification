@@ -24,7 +24,13 @@
       },
       "items": [
         {
-          "id": "SAMA-ARB-01"
+          "id": "SAMA-ARB-01",
+          "xinput": {
+            "form_response": {
+              "status": true,
+              "submission_id": "c844d5f4-29c3-4398-b594-8b4716ef5dbf"
+            }
+          }
         }
       ],
       "fulfillments": [
@@ -57,12 +63,6 @@
             "contact": {
               "phone": "+91-9999999999",
               "email": "john.doe@example.com"
-            }
-          },
-          "xinput": {
-            "form_response": {
-              "status": true,
-              "submission_id": "c844d5f4-29c3-4398-b594-8b4716ef5dbf"
             }
           },
           "tags": [

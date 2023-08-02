@@ -18,7 +18,7 @@
   "message": {
     "intent": {
       "descriptor": {
-        "name": "Dispute Resolution"
+        "code": "arbitration-service"
       }
     }
   }

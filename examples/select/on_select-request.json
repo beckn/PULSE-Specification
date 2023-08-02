@@ -38,6 +38,26 @@
           "id": "SAMA-ARB-01",
           "descriptor": {
             "name": "Arbitration Services"
+          },
+          "xinput": {
+            "head": {
+              "descriptor": {
+                "name": "Case Information"
+              },
+              "index": {
+                "min": 0,
+                "cur": 0,
+                "max": 0
+              },
+              "headings": [
+                "Case Information"
+              ]
+            },
+            "form": {
+              "mime_type": "text/html",
+              "url": "https://6vs8xnx5i7.sama.co.in/upload-case-files/xinput/formid/a23f2fdfbbb8ac402bfd54f"
+            },
+            "required": true
           }
         }
       ],
@@ -72,13 +92,6 @@
               "phone": "+91-9999999999",
               "email": "john.doe@example.com"
             }
-          },
-          "xinput": {
-            "form": {
-              "mime_type": "text/html",
-              "url": "https://6vs8xnx5i7.sama.co.in/upload-case-files/xinput/formid/a23f2fdfbbb8ac402bfd54f"
-            },
-            "required": true
           }
         }
       ]

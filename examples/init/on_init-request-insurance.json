@@ -38,6 +38,26 @@
           "id": "SAMA-ARB-01",
           "descriptor": {
             "name": "Arbitration Services"
+          },
+          "xinput": {
+            "head": {
+              "descriptor": {
+                "name": "Agreement"
+              },
+              "index": {
+                "min": 0,
+                "cur": 0,
+                "max": 0
+              },
+              "headings": [
+                "Agreement"
+              ]
+            },
+            "form": {
+              "mime_type": "text/html",
+              "url": "https://6vs8xnx5i7.sama.co.in/agreement/xinput/formid/a23f2fdfbbb8ac402bfd54f"
+            },
+            "required": true
           }
         }
       ],

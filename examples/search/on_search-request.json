@@ -41,18 +41,21 @@
           {
             "id": "ODRCAT001",
             "descriptor": {
+              "code": "conciliation-service",
               "name": "Conciliation Service"
             }
           },
           {
             "id": "ODRCAT002",
             "descriptor": {
+              "code": "arbitration-service",
               "name": "Arbitration Service"
             }
           },
           {
             "id": "ODRCAT003",
             "descriptor": {
+              "code": "Mediation Service",
               "name": "Mediation Service"
             }
           }
