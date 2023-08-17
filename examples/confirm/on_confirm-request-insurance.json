@@ -38,10 +38,15 @@
         {
           "id": "SAMA-ARB-01",
           "descriptor": {
+            "code": "arbitration-services",
             "name": "Arbitration Services"
           }
         }
       ],
+      "billing": {
+        "name": "Secure Insurance Co",
+        "email": "alisha.sharma@example.com"
+      },
       "fulfillments": [
         {
           "customer": {

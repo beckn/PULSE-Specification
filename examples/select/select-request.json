@@ -24,39 +24,11 @@
       },
       "items": [
         {
-          "id": "SAMA-ARB-01"
-        }
-      ],
-      "fulfillments": [
-        {
-          "customer": {
-            "person": {
-              "name": "John Doe",
-              "tags": [
-                {
-                  "descriptor": {
-                    "name": "Address"
-                  },
-                  "list": [
-                    {
-                      "descriptor": {
-                        "name": "Address"
-                      },
-                      "value": "21A, ABC Appartments, HSR Layout, Bengaluru"
-                    },
-                    {
-                      "descriptor": {
-                        "name": "Area code"
-                      },
-                      "value": "560102"
-                    }
-                  ]
-                }
-              ]
-            },
-            "contact": {
-              "phone": "+91-9999999999",
-              "email": "john.doe@example.com"
+          "id": "SAMA-ARB-01",
+          "xinput": {
+            "form_response": {
+              "status": true,
+              "submission_id": "c844d5f4-29c3-4398-b594-8b4716ef5dbf"
             }
           }
         }

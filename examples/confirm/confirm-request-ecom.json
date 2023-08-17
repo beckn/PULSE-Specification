@@ -33,6 +33,10 @@
           }
         }
       ],
+      "billing": {
+        "name": "WS Retail",
+        "email": "adam.keally@example.com"
+      },
       "fulfillments": [
         {
           "customer": {
@@ -64,85 +68,7 @@
               "phone": "+91-9999999999",
               "email": "john.doe@example.com"
             }
-          },
-          "stops":[
-            {
-              "authorization": {
-                "type": "OTP",
-                "token": "520853"
-              }
-            }
-          ],
-          "tags": [
-            {
-              "descriptor": {
-                "name": "Dispute Details"
-              },
-              "list": [
-                {
-                  "descriptor": {
-                    "name": "category"
-                  },
-                  "value": "E-Commerce"
-                },
-                {
-                  "descriptor": {
-                    "name": "details"
-                  },
-                  "value": "Delivered Bluetooth speaker not as shown on the website"
-                },
-                {
-                  "descriptor": {
-                    "name": "purchase price"
-                  },
-                  "value": "3500"
-                },
-                {
-                  "descriptor": {
-                    "name": "product link"
-                  },
-                  "value": "https://hbo.com/electronics/speakers/ship-bt002.html"
-                },
-                {
-                  "descriptor": {
-                    "name": "claim filing date"
-                  },
-                  "value": "2023-06-20"
-                }
-              ]
-            },
-            {
-              "descriptor": {
-                "name": "Respondent details"
-              },
-              "list": [
-                {
-                  "descriptor": {
-                    "name": "name"
-                  },
-                  "value": "WS Retail"
-                },
-                {
-                  "descriptor": {
-                    "name": "contact person"
-                  },
-                  "value": "Adam Da Keally"
-                },
-                {
-                  "descriptor": {
-                    "name": "contact details"
-                  },
-                  "value": "adam.keally@example.com"
-                },
-                {
-                  "descriptor": {
-                    "name": "address"
-                  },
-                  "value": "456, ECom Avenue, City XYZ, State ABC"
-                }
-              ]
-            }
-          ]
+          }
         }
       ]
     }

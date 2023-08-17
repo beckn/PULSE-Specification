@@ -39,7 +39,8 @@
         {
           "id": "66b7b9bad166-4a3f-ada6-ca063dc9d321",
           "descriptor": {
-            "short_desc": "Arbitration Service"
+            "code": "arbitration-service",
+            "name": "Arbitration Service"
           }
         }
       ],
@@ -64,6 +65,20 @@
             }
           }
         ]
+      },
+      "payments": [
+        {
+          "params": {
+            "amount": "2500",
+            "currency": "INR"
+          },
+          "status": "PAID",
+          "type": "PRE-ORDER"
+        }
+      ],
+      "billing": {
+        "name": "Secure Insurance Co",
+        "email": "alisha.sharma@example.com"
       },
       "fulfillments": [
         {
@@ -116,49 +131,60 @@
           ],
           "state": {
             "descriptor": {
-              "name": "Arbitration In Progress"
+              "name": "Hearing date has been updated."
             }
+          }
+        }
+      ],
+      "tags": [
+        {
+          "descriptor": {
+            "name": "Dispute Details"
           },
-          "tags": [
+          "list": [
             {
               "descriptor": {
-                "name": "Dispute Details"
+                "name": "category"
               },
-              "list": [
-                {
-                  "descriptor": {
-                    "name": "category"
-                  },
-                  "value": "Insurance"
-                },
-                {
-                  "descriptor": {
-                    "name": "details"
-                  },
-                  "value": "Insurance payout denied to the complainant"
-                }
-              ]
+              "value": "Insurance"
             },
             {
               "descriptor": {
-                "name": "Respondent details"
+                "name": "details"
               },
-              "list": [
-                {
-                  "descriptor": {
-                    "name": "name"
-                  },
-                  "value": "ICICI Prudential Life Insurance"
-                },
-                {
-                  "descriptor": {
-                    "name": "address"
-                  },
-                  "value": " E-1 Block, Videocon Tower, near Jhandewalan, Delhi, 110055"
-                }
-              ]
+              "value": "Insurance payout denied to the complainant"
             }
           ]
+        },
+        {
+          "descriptor": {
+            "name": "Respondent details"
+          },
+          "list": [
+            {
+              "descriptor": {
+                "name": "name"
+              },
+              "value": "ICICI Prudential Life Insurance"
+            },
+            {
+              "descriptor": {
+                "name": "address"
+              },
+              "value": " E-1 Block, Videocon Tower, near Jhandewalan, Delhi, 110055"
+            }
+          ]
+        }
+      ],
+      "docs": [
+        {
+          "descriptor": {
+            "code": "case-document",
+            "name": "Case Documentation",
+            "short_desc": "Download all the case documents from here"
+          },
+          "mime_type": "application/pdf",
+          "url": "https://sama.com/case-doc/04389d8c-6a50-4664-9c08-4ee45fef44e8.pdf"
         }
       ]
     }

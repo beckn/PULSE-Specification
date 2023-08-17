@@ -29,10 +29,10 @@
         "descriptor": {
           "images": [
             {
-              "url": "https://www.sama.com/content/dam/sama/india/assets/images/header/logo.png"
+              "url": "https://www.sama.com/content/dam/sama/india/assets/images/header/logo.png",
+              "size_type": "xs"
             }
           ],
-          "code": "ODRSAMA",
           "name": "Sama",
           "short_desc": "Sama",
           "long_desc": "Sama Pvt Ltd., India."
@@ -68,7 +68,27 @@
             },
             "category_ids": [
               "ODRCAT002"
-            ]
+            ],
+            "xinput": {
+              "head": {
+                "descriptor": {
+                  "name": "Case Information"
+                },
+                "index": {
+                  "min": 0,
+                  "cur": 0,
+                  "max": 0
+                },
+                "headings": [
+                  "Case Information"
+                ]
+              },
+              "form": {
+                "mime_type": "text/html",
+                "url": "https://6vs8xnx5i7.sama.co.in/upload-case-files/xinput/formid/a23f2fdfbbb8ac402bfd54f"
+              },
+              "required": true
+            }
           },
           {
             "id": "SAMA-CONC-01",
@@ -77,7 +97,27 @@
             },
             "category_ids": [
               "ODRCAT001"
-            ]
+            ],
+            "xinput": {
+              "head": {
+                "descriptor": {
+                  "name": "Case Information"
+                },
+                "index": {
+                  "min": 0,
+                  "cur": 0,
+                  "max": 0
+                },
+                "headings": [
+                  "Case Information"
+                ]
+              },
+              "form": {
+                "mime_type": "text/html",
+                "url": "https://6vs8xnx5i7.sama.co.in/upload-case-files/xinput/formid/a23f2fdfbbb8ac402bfd54f"
+              },
+              "required": true
+            }
           },
           {
             "id": "SAMA-MED-01",
@@ -86,7 +126,27 @@
             },
             "category_ids": [
               "ODRCAT003"
-            ]
+            ],
+            "xinput": {
+              "head": {
+                "descriptor": {
+                  "name": "Case Information"
+                },
+                "index": {
+                  "min": 0,
+                  "cur": 0,
+                  "max": 0
+                },
+                "headings": [
+                  "Case Information"
+                ]
+              },
+              "form": {
+                "mime_type": "text/html",
+                "url": "https://6vs8xnx5i7.sama.co.in/upload-case-files/xinput/formid/a23f2fdfbbb8ac402bfd54f"
+              },
+              "required": true
+            }
           }
         ]
       }

@@ -29,10 +29,10 @@
         "descriptor": {
           "images": [
             {
-              "url": "https://www.odrways.com/content/dam/odrways/india/assets/images/header/logo.png"
+              "url": "https://www.odrways.com/content/dam/odrways/india/assets/images/header/logo.png",
+              "size_type": "xs"
             }
           ],
-          "code": "ODRWAYS",
           "name": "ODRWays",
           "short_desc": "ODRWays",
           "long_desc": "ODRWays Pvt Ltd., India."
@@ -41,18 +41,21 @@
           {
             "id": "ODRCAT001",
             "descriptor": {
+              "code": "conciliation-service",
               "name": "Conciliation Service"
             }
           },
           {
             "id": "ODRCAT002",
             "descriptor": {
+              "code": "arbitration-service",
               "name": "Arbitration Service"
             }
           },
           {
             "id": "ODRCAT003",
             "descriptor": {
+              "code": "Mediation Service",
               "name": "Mediation Service"
             }
           }
@@ -65,7 +68,27 @@
             },
             "category_ids": [
               "ODRCAT002"
-            ]
+            ],
+            "xinput": {
+              "head": {
+                "descriptor": {
+                  "name": "Case Information"
+                },
+                "index": {
+                  "min": 0,
+                  "cur": 0,
+                  "max": 0
+                },
+                "headings": [
+                  "Case Information"
+                ]
+              },
+              "form": {
+                "mime_type": "text/html",
+                "url": "https://6vs8xnx5i7.sama.co.in/upload-case-files/xinput/formid/a23f2fdfbbb8ac402bfd54f"
+              },
+              "required": true
+            }
           },
           {
             "id": "ODRW-CONC-01",
@@ -74,7 +97,27 @@
             },
             "category_ids": [
               "ODRCAT001"
-            ]
+            ],
+            "xinput": {
+              "head": {
+                "descriptor": {
+                  "name": "Case Information"
+                },
+                "index": {
+                  "min": 0,
+                  "cur": 0,
+                  "max": 0
+                },
+                "headings": [
+                  "Case Information"
+                ]
+              },
+              "form": {
+                "mime_type": "text/html",
+                "url": "https://6vs8xnx5i7.sama.co.in/upload-case-files/xinput/formid/a23f2fdfbbb8ac402bfd54f"
+              },
+              "required": true
+            }
           },
           {
             "id": "ODRW-MED-01",
@@ -83,7 +126,27 @@
             },
             "category_ids": [
               "ODRCAT003"
-            ]
+            ],
+            "xinput": {
+              "head": {
+                "descriptor": {
+                  "name": "Case Information"
+                },
+                "index": {
+                  "min": 0,
+                  "cur": 0,
+                  "max": 0
+                },
+                "headings": [
+                  "Case Information"
+                ]
+              },
+              "form": {
+                "mime_type": "text/html",
+                "url": "https://6vs8xnx5i7.sama.co.in/upload-case-files/xinput/formid/a23f2fdfbbb8ac402bfd54f"
+              },
+              "required": true
+            }
           }
         ]
       }

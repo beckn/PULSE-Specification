@@ -17,8 +17,10 @@
   },
   "message": {
     "intent": {
-      "descriptor": {
-        "code": "arbitration-service"
+      "category": {
+        "descriptor": {
+          "code": "arbitration-service"
+        }
       }
     }
   }

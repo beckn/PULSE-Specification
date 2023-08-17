@@ -37,6 +37,7 @@
         {
           "id": "SAMA-ARB-01",
           "descriptor": {
+            "code": "arbitration-service",
             "name": "Arbitration Services"
           },
           "xinput": {
@@ -61,6 +62,10 @@
           }
         }
       ],
+      "billing": {
+        "name": "Secure Insurance co",
+        "email": "alisha.sharam@example.com"
+      },
       "fulfillments": [
         {
           "customer": {
@@ -92,71 +97,7 @@
               "phone": "+91-9999999999",
               "email": "john.doe@example.com"
             }
-          },
-          "tags": [
-            {
-              "descriptor": {
-                "name": "Dispute Details"
-              },
-              "list": [
-                {
-                  "descriptor": {
-                    "name": "category"
-                  },
-                  "value": "Insurance"
-                },
-                {
-                  "descriptor": {
-                    "name": "details"
-                  },
-                  "value": "Insurance payout rejected to the complainant"
-                },
-                {
-                  "descriptor": {
-                    "name": "claim amount"
-                  },
-                  "value": "50000"
-                },
-                {
-                  "descriptor": {
-                    "name": "claim filing date"
-                  },
-                  "value": "2023-06-20"
-                }
-              ]
-            },
-            {
-              "descriptor": {
-                "name": "Respondent details"
-              },
-              "list": [
-                {
-                  "descriptor": {
-                    "name": "name"
-                  },
-                  "value": "Secure Insurance Co"
-                },
-                {
-                  "descriptor": {
-                    "name": "contact person"
-                  },
-                  "value": "Alisha Sharma"
-                },
-                {
-                  "descriptor": {
-                    "name": "contact details"
-                  },
-                  "value": "alisha.sharma@example.com"
-                },
-                {
-                  "descriptor": {
-                    "name": "address"
-                  },
-                  "value": "456, Insurance Avenue, City XYZ, State ABC"
-                }
-              ]
-            }
-          ]
+          }
         }
       ],
       "quote": {
@@ -183,13 +124,64 @@
       },
       "tags": [
         {
+          "descriptor": {
+            "name": "Dispute Details"
+          },
           "list": [
             {
               "descriptor": {
-                "name": "Online Dispute Resolution Agreement",
-                "short_desc": "Click on this link to view and sign your Agreement"
+                "name": "category"
               },
-              "value": "https://sama.com/agreement?id=afyrq9fbH"
+              "value": "Insurance"
+            },
+            {
+              "descriptor": {
+                "name": "details"
+              },
+              "value": "Insurance payout rejected to the complainant"
+            },
+            {
+              "descriptor": {
+                "name": "claim amount"
+              },
+              "value": "50000"
+            },
+            {
+              "descriptor": {
+                "name": "claim filing date"
+              },
+              "value": "2023-06-20"
+            }
+          ]
+        },
+        {
+          "descriptor": {
+            "name": "Respondent details"
+          },
+          "list": [
+            {
+              "descriptor": {
+                "name": "name"
+              },
+              "value": "Secure Insurance Co"
+            },
+            {
+              "descriptor": {
+                "name": "contact person"
+              },
+              "value": "Alisha Sharma"
+            },
+            {
+              "descriptor": {
+                "name": "contact details"
+              },
+              "value": "alisha.sharma@example.com"
+            },
+            {
+              "descriptor": {
+                "name": "address"
+              },
+              "value": "456, Insurance Avenue, City XYZ, State ABC"
             }
           ]
         }

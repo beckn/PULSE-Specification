@@ -28,7 +28,6 @@
               "url": "https://www.sama.com/content/dam/sama/india/assets/images/header/logo.png"
             }
           ],
-          "code": "ODRSAMA",
           "name": "Sama",
           "short_desc": "Sama",
           "long_desc": "Sama Pvt Ltd., India."
@@ -38,10 +37,15 @@
         {
           "id": "SAMA-ARB-01",
           "descriptor": {
+            "code": "arbitration-service",
             "name": "Arbitration Services"
           }
         }
       ],
+      "billing": {
+        "name": "WS Retail",
+        "email": "adam.keally@example.com"
+      },
       "fulfillments": [
         {
           "customer": {
@@ -74,76 +78,6 @@
               "email": "john.doe@example.com"
             }
           },
-          "tags": [
-            {
-              "descriptor": {
-                "name": "Dispute Details"
-              },
-              "list": [
-                {
-                  "descriptor": {
-                    "name": "category"
-                  },
-                  "value": "E-Commerce"
-                },
-                {
-                  "descriptor": {
-                    "name": "details"
-                  },
-                  "value": "Delivered Bluetooth speaker not as shown on the website"
-                },
-                {
-                  "descriptor": {
-                    "name": "purchase price"
-                  },
-                  "value": "3500"
-                },
-                {
-                  "descriptor": {
-                    "name": "product link"
-                  },
-                  "value": "https://hbo.com/electronics/speakers/ship-bt002.html"
-                },
-                {
-                  "descriptor": {
-                    "name": "claim filing date"
-                  },
-                  "value": "2023-06-20"
-                }
-              ]
-            },
-            {
-              "descriptor": {
-                "name": "Respondent details"
-              },
-              "list": [
-                {
-                  "descriptor": {
-                    "name": "name"
-                  },
-                  "value": "WS Retail"
-                },
-                {
-                  "descriptor": {
-                    "name": "contact person"
-                  },
-                  "value": "Adam Da Keally"
-                },
-                {
-                  "descriptor": {
-                    "name": "contact details"
-                  },
-                  "value": "adam.keally@example.com"
-                },
-                {
-                  "descriptor": {
-                    "name": "address"
-                  },
-                  "value": "456, ECom Avenue, City XYZ, State ABC"
-                }
-              ]
-            }
-          ],
           "state": {
             "descriptor": {
               "name": "Case has been confirmed."
@@ -172,7 +106,77 @@
             }
           }
         ]
-      }
+      },
+      "tags": [
+        {
+          "descriptor": {
+            "name": "Dispute Details"
+          },
+          "list": [
+            {
+              "descriptor": {
+                "name": "category"
+              },
+              "value": "E-Commerce"
+            },
+            {
+              "descriptor": {
+                "name": "details"
+              },
+              "value": "Delivered Bluetooth speaker not as shown on the website"
+            },
+            {
+              "descriptor": {
+                "name": "purchase price"
+              },
+              "value": "3500"
+            },
+            {
+              "descriptor": {
+                "name": "product link"
+              },
+              "value": "https://hbo.com/electronics/speakers/ship-bt002.html"
+            },
+            {
+              "descriptor": {
+                "name": "claim filing date"
+              },
+              "value": "2023-06-20"
+            }
+          ]
+        },
+        {
+          "descriptor": {
+            "name": "Respondent details"
+          },
+          "list": [
+            {
+              "descriptor": {
+                "name": "name"
+              },
+              "value": "WS Retail"
+            },
+            {
+              "descriptor": {
+                "name": "contact person"
+              },
+              "value": "Adam Da Keally"
+            },
+            {
+              "descriptor": {
+                "name": "contact details"
+              },
+              "value": "adam.keally@example.com"
+            },
+            {
+              "descriptor": {
+                "name": "address"
+              },
+              "value": "456, ECom Avenue, City XYZ, State ABC"
+            }
+          ]
+        }
+      ]
     }
   }
 }
