@@ -13,8 +13,8 @@
     "version": "1.1.0",
     "bap_uri": "https://odr-network-bap.becknprotocol.io/",
     "bap_id": "odr-bap.becknprotocol.io",
-    "bpp_id": "sama-odr-bpp.becknprotocol.io",
-    "bpp_uri": "https://sama-odr-network-bpp.becknprotocol.io",
+    "bpp_id": "alpha-odr-bpp.becknprotocol.io",
+    "bpp_uri": "https://alpha-odr-network-bpp.becknprotocol.io",
     "ttl": "PT10M"
   },
   "message": {
@@ -24,7 +24,7 @@
       },
       "items": [
         {
-          "id": "SAMA-ARB-01",
+          "id": "ALPHA-ARB-01",
           "xinput": {
             "form_response": {
               "status": true,

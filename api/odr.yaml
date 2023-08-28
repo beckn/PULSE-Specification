@@ -34,6 +34,27 @@ paths:
               required:
                 - context
                 - message
+            examples:
+              Search for online dispute resolution services:
+                value:
+                  context:
+                    domain: online-dispute-resolution:0.1.0
+                    location:
+                      country:
+                        code: IND
+                    transaction_id: a9aaecca-10b7-4d19-b640-b047a7c62196
+                    message_id: $bb579fb8-cb82-4824-be12-fcbc405b6608
+                    action: search
+                    timestamp: '2023-05-25T05:23:03.443Z'
+                    version: 1.1.0
+                    bap_uri: https://odr-network-bap.becknprotocol.io/
+                    bap_id: odr-bap.becknprotocol.io
+                    ttl: PT10M
+                  message:
+                    intent:
+                      category:
+                        descriptor:
+                          code: arbitration-service
       responses:
         '200':
           description: Acknowledgement of message received after successful validation of schema and signature
@@ -89,6 +110,34 @@ paths:
               required:
                 - context
                 - message
+            examples:
+              Select the arbitration service from a provider:
+                value:
+                  context:
+                    domain: online-dispute-resolution:0.1.0
+                    location:
+                      country:
+                        code: IND
+                    transaction_id: a9aaecca-10b7-4d19-b640-b047a7c62196
+                    message_id: $bb579fb8-cb82-4824-be12-fcbc405b6608
+                    action: select
+                    timestamp: '2023-05-25T05:23:03.443Z'
+                    version: 1.1.0
+                    bap_uri: https://odr-network-bap.becknprotocol.io/
+                    bap_id: odr-bap.becknprotocol.io
+                    bpp_id: alpha-odr-bpp.becknprotocol.io
+                    bpp_uri: https://alpha-odr-network-bpp.becknprotocol.io
+                    ttl: PT10M
+                  message:
+                    order:
+                      provider:
+                        id: ODR001
+                      items:
+                        - id: ALPHA-ARB-01
+                          xinput:
+                            form_response:
+                              status: true
+                              submission_id: c844d5f4-29c3-4398-b594-8b4716ef5dbf
       responses:
         '200':
           description: Acknowledgement of message received after successful validation of schema and signature
@@ -144,6 +193,101 @@ paths:
               required:
                 - context
                 - message
+            examples:
+              Initialize the arbitration service for an e-commerce dispute:
+                value:
+                  context:
+                    domain: online-dispute-resolution:0.1.0
+                    location:
+                      country:
+                        code: IND
+                    transaction_id: a9aaecca-10b7-4d19-b640-b047a7c62196
+                    message_id: $bb579fb8-cb82-4824-be12-fcbc405b6608
+                    action: init
+                    timestamp: '2023-05-25T05:23:03.443Z'
+                    version: 1.1.0
+                    bap_uri: https://odr-network-bap.becknprotocol.io/
+                    bap_id: odr-bap.becknprotocol.io
+                    bpp_id: alpha-odr-bpp.becknprotocol.io
+                    bpp_uri: https://alpha-odr-network-bpp.becknprotocol.io
+                    ttl: PT10M
+                  message:
+                    order:
+                      provider:
+                        id: ODR001
+                      items:
+                        - id: ALPHA-ARB-01
+                          xinput:
+                            form_response:
+                              status: true
+                              submission_id: c844d5f4-29c3-4398-b594-8b4716ef5dbf
+                      billing:
+                        name: WS Retail
+                        email: adam.keally@example.com
+                      fulfillments:
+                        - customer:
+                            person:
+                              name: John Doe
+                              tags:
+                                - descriptor:
+                                    name: Address
+                                  list:
+                                    - descriptor:
+                                        name: Address
+                                      value: 21A, ABC Appartments, HSR Layout, Bengaluru
+                                    - descriptor:
+                                        name: Area code
+                                      value: '560102'
+                            contact:
+                              phone: +91-9999999999
+                              email: john.doe@example.com
+              Initialize the arbitration service for an insurance dispute:
+                value:
+                  context:
+                    domain: online-dispute-resolution:0.1.0
+                    location:
+                      country:
+                        code: IND
+                    transaction_id: a9aaecca-10b7-4d19-b640-b047a7c62196
+                    message_id: $bb579fb8-cb82-4824-be12-fcbc405b6608
+                    action: init
+                    timestamp: '2023-05-25T05:23:03.443Z'
+                    version: 1.1.0
+                    bap_uri: https://odr-network-bap.becknprotocol.io/
+                    bap_id: odr-bap.becknprotocol.io
+                    bpp_id: alpha-odr-bpp.becknprotocol.io
+                    bpp_uri: https://alpha-odr-network-bpp.becknprotocol.io
+                    ttl: PT10M
+                  message:
+                    order:
+                      provider:
+                        id: ODR001
+                      items:
+                        - id: ALPHA-ARB-01
+                          xinput:
+                            form_response:
+                              status: true
+                              submission_id: c844d5f4-29c3-4398-b594-8b4716ef5dbf
+                      billing:
+                        name: Secure Insurance Co
+                        email: alisha.sharma@example.com
+                      fulfillments:
+                        - customer:
+                            person:
+                              name: John Doe
+                              tags:
+                                - descriptor:
+                                    name: Address
+                                  list:
+                                    - descriptor:
+                                        name: Address
+                                      value: 21A, ABC Appartments, HSR Layout, Bengaluru
+                                    - descriptor:
+                                        name: Area code
+                                      value: '560102'
+                            contact:
+                              phone: +91-9999999999
+                              email: john.doe@example.com
       responses:
         '200':
           description: Acknowledgement of message received after successful validation of schema and signature
@@ -199,6 +343,101 @@ paths:
               required:
                 - context
                 - message
+            examples:
+              Confirm the details of the order for the e-commmerce dispute:
+                value:
+                  context:
+                    domain: online-dispute-resolution:0.1.0
+                    location:
+                      country:
+                        code: IND
+                    transaction_id: a9aaecca-10b7-4d19-b640-b047a7c62196
+                    message_id: $bb579fb8-cb82-4824-be12-fcbc405b6608
+                    action: confirm
+                    timestamp: '2023-05-25T05:23:03.443Z'
+                    version: 1.1.0
+                    bap_uri: https://odr-network-bap.becknprotocol.io/
+                    bap_id: odr-bap.becknprotocol.io
+                    bpp_id: alpha-odr-bpp.becknprotocol.io
+                    bpp_uri: https://alpha-odr-network-bpp.becknprotocol.io
+                    ttl: PT10M
+                  message:
+                    order:
+                      provider:
+                        id: ODR001
+                      items:
+                        - id: ALPHA-ARB-01
+                          xinput:
+                            form_response:
+                              status: true
+                              submission_id: c844d5f4-29c3-4398-b594-8b4716ef5dbf
+                      billing:
+                        name: WS Retail
+                        email: adam.keally@example.com
+                      fulfillments:
+                        - customer:
+                            person:
+                              name: John Doe
+                              tags:
+                                - descriptor:
+                                    name: Address
+                                  list:
+                                    - descriptor:
+                                        name: Address
+                                      value: 21A, ABC Appartments, HSR Layout, Bengaluru
+                                    - descriptor:
+                                        name: Area code
+                                      value: '560102'
+                            contact:
+                              phone: +91-9999999999
+                              email: john.doe@example.com
+              Confirm the details of the order for the insurance dispute:
+                value:
+                  context:
+                    domain: online-dispute-resolution:0.1.0
+                    location:
+                      country:
+                        code: IND
+                    transaction_id: a9aaecca-10b7-4d19-b640-b047a7c62196
+                    message_id: $bb579fb8-cb82-4824-be12-fcbc405b6608
+                    action: confirm
+                    timestamp: '2023-05-25T05:23:03.443Z'
+                    version: 1.1.0
+                    bap_uri: https://odr-network-bap.becknprotocol.io/
+                    bap_id: odr-bap.becknprotocol.io
+                    bpp_id: alpha-odr-bpp.becknprotocol.io
+                    bpp_uri: https://alpha-odr-network-bpp.becknprotocol.io
+                    ttl: PT10M
+                  message:
+                    order:
+                      provider:
+                        id: ODR001
+                      items:
+                        - id: ALPHA-ARB-01
+                          xinput:
+                            form_response:
+                              status: true
+                              submission_id: c844d5f4-29c3-4398-b594-8b4716ef5dbf
+                      billing:
+                        name: Secure Insurance Co
+                        email: alisha.sharma@example.com
+                      fulfillments:
+                        - customer:
+                            person:
+                              name: John Doe
+                              tags:
+                                - descriptor:
+                                    name: Address
+                                  list:
+                                    - descriptor:
+                                        name: Address
+                                      value: 21A, ABC Appartments, HSR Layout, Bengaluru
+                                    - descriptor:
+                                        name: Area code
+                                      value: '560102'
+                            contact:
+                              phone: +91-9999999999
+                              email: john.doe@example.com
       responses:
         '200':
           description: Acknowledgement of message received after successful validation of schema and signature
@@ -254,6 +493,26 @@ paths:
               required:
                 - context
                 - message
+            examples:
+              Fetch the status of the dispute order from the provider:
+                value:
+                  context:
+                    domain: online-dispute-resolution:0.1.0
+                    location:
+                      country:
+                        code: IND
+                    transaction_id: a9aaecca-10b7-4d19-b640-b047a7c62196
+                    message_id: $bb579fb8-cb82-4824-be12-fcbc405b6608
+                    action: status
+                    timestamp: '2023-05-25T05:23:03.443Z'
+                    version: 1.1.0
+                    bap_uri: https://odr-network-bap.becknprotocol.io/
+                    bap_id: odr-bap.becknprotocol.io
+                    ttl: PT10M
+                    bpp_id: odr-bpp.becknprotocol.io
+                    bpp_uri: https://odr-network-bpp.becknprotocol.io
+                  message:
+                    order_id: 66b7b9bad166
       responses:
         '200':
           description: Acknowledgement of message received after successful validation of schema and signature
@@ -313,6 +572,29 @@ paths:
               required:
                 - context
                 - message
+            examples:
+              Cancel the dispute order:
+                value:
+                  context:
+                    domain: online-dispute-resolution:0.1.0
+                    location:
+                      country:
+                        code: IND
+                    transaction_id: a9aaecca-10b7-4d19-b640-b047a7c62196
+                    message_id: $bb579fb8-cb82-4824-be12-fcbc405b6608
+                    action: cancel
+                    timestamp: '2023-05-25T05:23:03.443Z'
+                    version: 1.1.0
+                    bap_uri: https://odr-network-bap.becknprotocol.io/
+                    bap_id: odr-bap.becknprotocol.io
+                    bpp_id: alpha-odr-bpp.becknprotocol.io
+                    bpp_uri: https://alpha-odr-network-bpp.becknprotocol.io
+                    ttl: PT10M
+                  message:
+                    order_id: 572BHD23HD
+                    cancellation_reason_id: '5'
+                    descriptor:
+                      short_desc: Dispute dropped
       responses:
         '200':
           description: Acknowledgement of message received after successful validation of schema and signature
@@ -374,6 +656,61 @@ paths:
               required:
                 - context
                 - message
+            examples:
+              Update the agent of the dispute:
+                value:
+                  context:
+                    domain: online-dispute-resolution:0.1.0
+                    location:
+                      country:
+                        code: IND
+                    version: 1.1.0
+                    action: update
+                    bap_uri: https://odr-network-bap.becknprotocol.io/
+                    bap_id: odr-bap.becknprotocol.io
+                    bpp_id: odr-bpp.becknprotocol.io
+                    bpp_uri: https://odr-network-bpp.becknprotocol.io
+                    transaction_id: a9aaecca-10b7-4d19-b640-b047a7c62196
+                    message_id: 166a5633-66d2-4ec8-bdcb-65cfeb1e4697
+                    ttl: PT10M
+                    timestamp: '2023-05-25T05:23:03.443Z'
+                  message:
+                    update_target: order.fulfillments[0].agent
+                    order:
+                      id: 66b7b9bad166
+                      fulfillments:
+                        - agent:
+                            person:
+                              id: ca063dc9d321
+                              name: Mr Adam Smith
+              Update the hearing date of the dispute:
+                value:
+                  context:
+                    domain: online-dispute-resolution:0.1.0
+                    location:
+                      country:
+                        code: IND
+                    version: 1.1.0
+                    action: update
+                    bap_uri: https://odr-network-bap.becknprotocol.io/
+                    bap_id: odr-bap.becknprotocol.io
+                    bpp_id: odr-bpp.becknprotocol.io
+                    bpp_uri: https://odr-network-bpp.becknprotocol.io
+                    transaction_id: a9aaecca-10b7-4d19-b640-b047a7c62196
+                    message_id: 166a5633-66d2-4ec8-bdcb-65cfeb1e4697
+                    ttl: PT10M
+                    timestamp: '2023-05-25T05:23:03.443Z'
+                  message:
+                    update_target: order.fulfillments[0].stops[0].time
+                    order:
+                      id: 66b7b9bad166
+                      fulfillments:
+                        - stops:
+                            - time:
+                                label: Hearing Date
+                                Range:
+                                  start: '2023-06-27T00:00:00.00Z'
+                                  end: '2023-08-02T00:00:00.00Z'
       responses:
         '200':
           description: Acknowledgement of message received after successful validation of schema and signature
@@ -427,6 +764,29 @@ paths:
               required:
                 - context
                 - message
+            examples:
+              Support by the provider for the online dispute order:
+                value:
+                  context:
+                    domain: online-dispute-resolution:0.1.0
+                    location:
+                      country:
+                        code: IND
+                    transaction_id: a9aaecca-10b7-4d19-b640-b047a7c62196
+                    message_id: $bb579fb8-cb82-4824-be12-fcbc405b6608
+                    action: support
+                    timestamp: '2023-05-25T05:23:03.443Z'
+                    version: 1.1.0
+                    bap_uri: https://odr-network-bap.becknprotocol.io/
+                    bap_id: odr-bap.becknprotocol.io
+                    bpp_id: alpha-odr-bpp.becknprotocol.io
+                    bpp_uri: https://alpha-odr-network-bpp.becknprotocol.io
+                    ttl: PT10M
+                  message:
+                    support:
+                      order_id: 572BHD23HD
+                      phone: '+919876543210'
+                      email: john.doe@gmail.com
       responses:
         '200':
           description: Acknowledgement of message received after successful validation of schema and signature
@@ -484,6 +844,108 @@ paths:
                   $ref: '#/components/schemas/Error'
               required:
                 - context
+            examples: 
+              ODR platforms respond with all the services they provider:
+                value:
+                  context:
+                    domain: online-dispute-resolution:0.1.0
+                    location:
+                      country:
+                        code: IND
+                    transaction_id: a9aaecca-10b7-4d19-b640-b047a7c62196
+                    message_id: $bb579fb8-cb82-4824-be12-fcbc405b6608
+                    action: on_search
+                    timestamp: '2023-05-25T05:23:03.443Z'
+                    version: 1.1.0
+                    bap_uri: https://odr-network-bap.becknprotocol.io/
+                    bap_id: odr-bap.becknprotocol.io
+                    bpp_id: alpha-odr-bpp.becknprotocol.io
+                    bpp_uri: https://alpha-odr-network-bpp.becknprotocol.io
+                    ttl: PT10M
+                  message:
+                    catalog:
+                      descriptor:
+                        name: Online Dispute Resolution Services
+                    provider:
+                      - id: ODR001
+                        descriptor:
+                          images:
+                            - url: https://www.alpha.com/content/dam/alpha/india/assets/images/header/logo.png
+                              size_type: xs
+                          name: Alpha
+                          short_desc: Alpha
+                          long_desc: Alpha Pvt Ltd., India.
+                        categories:
+                          - id: ODRCAT001
+                            descriptor:
+                              code: conciliation-service
+                              name: Conciliation Service
+                          - id: ODRCAT002
+                            descriptor:
+                              code: arbitration-service
+                              name: Arbitration Service
+                          - id: ODRCAT003
+                            descriptor:
+                              code: Mediation Service
+                              name: Mediation Service
+                        items:
+                          - id: ALPHA-ARB-01
+                            descriptor:
+                              name: Arbitration Services
+                            category_ids:
+                              - ODRCAT002
+                            xinput:
+                              head:
+                                descriptor:
+                                  name: Case Information
+                                index:
+                                  min: 0
+                                  cur: 0
+                                  max: 0
+                                headings:
+                                  - Case Information
+                              form:
+                                mime_type: text/html
+                                url: https://6vs8xnx5i7.alpha.co.in/upload-case-files/xinput/formid/a23f2fdfbbb8ac402bfd54f
+                              required: true
+                          - id: ALPHA-CONC-01
+                            descriptor:
+                              name: Conciliation Services
+                            category_ids:
+                              - ODRCAT001
+                            xinput:
+                              head:
+                                descriptor:
+                                  name: Case Information
+                                index:
+                                  min: 0
+                                  cur: 0
+                                  max: 0
+                                headings:
+                                  - Case Information
+                              form:
+                                mime_type: text/html
+                                url: https://6vs8xnx5i7.alpha.co.in/upload-case-files/xinput/formid/a23f2fdfbbb8ac402bfd54f
+                              required: true
+                          - id: ALPHA-MED-01
+                            descriptor:
+                              name: Mediation Services
+                            category_ids:
+                              - ODRCAT003
+                            xinput:
+                              head:
+                                descriptor:
+                                  name: Case Information
+                                index:
+                                  min: 0
+                                  cur: 0
+                                  max: 0
+                                headings:
+                                  - Case Information
+                              form:
+                                mime_type: text/html
+                                url: https://6vs8xnx5i7.alpha.co.in/upload-case-files/xinput/formid/a23f2fdfbbb8ac402bfd54f
+                              required: true
       responses:
         '200':
           description: Acknowledgement of message received after successful validation of schema and signature
@@ -538,6 +1000,67 @@ paths:
                   $ref: '#/components/schemas/Error'
               required:
                 - context
+            examples:
+              The ODR platform responds with the details of the service selected:
+                value:
+                  context:
+                    domain: online-dispute-resolution:0.1.0
+                    location:
+                      country:
+                        code: IND
+                    transaction_id: a9aaecca-10b7-4d19-b640-b047a7c62196
+                    message_id: $bb579fb8-cb82-4824-be12-fcbc405b6608
+                    action: on_select
+                    timestamp: '2023-05-25T05:23:03.443Z'
+                    version: 1.1.0
+                    bap_uri: https://odr-network-bap.becknprotocol.io/
+                    bap_id: odr-bap.becknprotocol.io
+                    bpp_id: alpha-odr-bpp.becknprotocol.io
+                    bpp_uri: https://alpha-odr-network-bpp.becknprotocol.io
+                    ttl: PT10M
+                  message:
+                    order:
+                      provider:
+                        id: ODR001
+                        descriptor:
+                          images:
+                            - url: https://www.alpha.com/content/dam/alpha/india/assets/images/header/logo.png
+                              size_type: xs
+                          name: Alpha
+                          short_desc: Alpha
+                          long_desc: Alpha Pvt Ltd., India.
+                      items:
+                        - id: ALPHA-ARB-01
+                          descriptor:
+                            code: arbitration-service
+                            name: Arbitration Services
+                          xinput:
+                            head:
+                              descriptor:
+                                name: Case Respondent Information
+                              index:
+                                min: 0
+                                cur: 0
+                                max: 0
+                              headings:
+                                - Case Respondent Information
+                            form:
+                              mime_type: text/html
+                              url: https://6vs8xnx5i7.alpha.co.in/upload-case-files/xinput/formid/a23f2fdfbbb8ac402bfd54f
+                            required: true
+                      quote:
+                        price:
+                          currency: INR
+                          value: '2500'
+                        breakup:
+                          - title: Base fee
+                            price:
+                              value: '2000'
+                              currency: INR
+                          - title: Fee per hearing
+                            price:
+                              value: '500'
+                              currency: INR
       responses:
         '200':
           description: Acknowledgement of message received after successful validation of schema and signature
@@ -594,6 +1117,232 @@ paths:
                   $ref: '#/components/schemas/Error'
               required:
                 - context
+            examples:
+              The ODR initializes the order for an e-commerce dispute:
+                value:
+                  context:
+                    domain: online-dispute-resolution:0.1.0
+                    location:
+                      country:
+                        code: IND
+                    transaction_id: a9aaecca-10b7-4d19-b640-b047a7c62196
+                    message_id: $bb579fb8-cb82-4824-be12-fcbc405b6608
+                    action: on_init
+                    timestamp: '2023-05-25T05:23:03.443Z'
+                    version: 1.1.0
+                    bap_uri: https://odr-network-bap.becknprotocol.io/
+                    bap_id: odr-bap.becknprotocol.io
+                    bpp_id: alpha-odr-bpp.becknprotocol.io
+                    bpp_uri: https://alpha-odr-network-bpp.becknprotocol.io
+                    ttl: PT10M
+                  message:
+                    order:
+                      provider:
+                        id: ODR001
+                        descriptor:
+                          images:
+                            - url: https://www.alpha.com/content/dam/alpha/india/assets/images/header/logo.png
+                          code: ODRALPHA
+                          name: Alpha
+                          short_desc: Alpha
+                          long_desc: Alpha Pvt Ltd., India.
+                      items:
+                        - id: ALPHA-ARB-01
+                          descriptor:
+                            code: arbitration-service
+                            name: Arbitration Services
+                          xinput:
+                            head:
+                              descriptor:
+                                name: Agreement
+                              index:
+                                min: 0
+                                cur: 0
+                                max: 0
+                              headings:
+                                - Agreement
+                            form:
+                              mime_type: text/html
+                              url: https://6vs8xnx5i7.alpha.co.in/agreement/xinput/formid/a23f2fdfbbb8ac402bfd54f
+                            required: true
+                      billing:
+                        name: WS Retail
+                        email: adam.keally@example.com
+                      fulfillments:
+                        - customer:
+                            person:
+                              name: John Doe
+                              tags:
+                                - descriptor:
+                                    name: Address
+                                  list:
+                                    - descriptor:
+                                        name: Address
+                                      value: 21A, ABC Appartments, HSR Layout, Bengaluru
+                                    - descriptor:
+                                        name: Area code
+                                      value: '560102'
+                            contact:
+                              phone: +91-9999999999
+                              email: john.doe@example.com
+                      quote:
+                        price:
+                          currency: INR
+                          value: '2500'
+                        breakup:
+                          - title: Base fee
+                            price:
+                              value: '2000'
+                              currency: INR
+                          - title: Fee per hearing
+                            price:
+                              value: '500'
+                              currency: INR
+                      tags:
+                        - descriptor:
+                            name: Dispute Details
+                          list:
+                            - descriptor:
+                                name: category
+                              value: E-Commerce
+                            - descriptor:
+                                name: details
+                              value: Delivered Bluetooth speaker not as shown on the website
+                            - descriptor:
+                                name: purchase price
+                              value: '3500'
+                            - descriptor:
+                                name: product link
+                              value: https://hbo.com/electronics/speakers/ship-bt002.html
+                            - descriptor:
+                                name: claim filing date
+                              value: '2023-06-20'
+                        - descriptor:
+                            name: Respondent details
+                          list:
+                            - descriptor:
+                                name: name
+                              value: WS Retail
+                            - descriptor:
+                                name: contact person
+                              value: Adam Da Keally
+                            - descriptor:
+                                name: contact details
+                              value: adam.keally@example.com
+                            - descriptor:
+                                name: address
+                              value: 456, ECom Avenue, City XYZ, State ABC
+              The ODR initializes the order for an insurance dispute:
+                value:
+                  context:
+                    domain: online-dispute-resolution:0.1.0
+                    location:
+                      country:
+                        code: IND
+                    transaction_id: a9aaecca-10b7-4d19-b640-b047a7c62196
+                    message_id: $bb579fb8-cb82-4824-be12-fcbc405b6608
+                    action: on_init
+                    timestamp: '2023-05-25T05:23:03.443Z'
+                    version: 1.1.0
+                    bap_uri: https://odr-network-bap.becknprotocol.io/
+                    bap_id: odr-bap.becknprotocol.io
+                    bpp_id: alpha-odr-bpp.becknprotocol.io
+                    bpp_uri: https://alpha-odr-network-bpp.becknprotocol.io
+                    ttl: PT10M
+                  message:
+                    order:
+                      provider:
+                        id: ODR001
+                        descriptor:
+                          images:
+                            - url: https://www.alpha.com/content/dam/alpha/india/assets/images/header/logo.png
+                          code: ODRALPHA
+                          name: Alpha
+                          short_desc: Alpha
+                          long_desc: Alpha Pvt Ltd., India.
+                      items:
+                        - id: ALPHA-ARB-01
+                          descriptor:
+                            code: arbitration-service
+                            name: Arbitration Services
+                          xinput:
+                            head:
+                              descriptor:
+                                name: Agreement
+                              index:
+                                min: 0
+                                cur: 0
+                                max: 0
+                              headings:
+                                - Agreement
+                            form:
+                              mime_type: text/html
+                              url: https://6vs8xnx5i7.alpha.co.in/agreement/xinput/formid/a23f2fdfbbb8ac402bfd54f
+                            required: true
+                      billing:
+                        name: Secure Insurance co
+                        email: alisha.sharam@example.com
+                      fulfillments:
+                        - customer:
+                            person:
+                              name: John Doe
+                              tags:
+                                - descriptor:
+                                    name: Address
+                                  list:
+                                    - descriptor:
+                                        name: Address
+                                      value: 21A, ABC Appartments, HSR Layout, Bengaluru
+                                    - descriptor:
+                                        name: Area code
+                                      value: '560102'
+                            contact:
+                              phone: +91-9999999999
+                              email: john.doe@example.com
+                      quote:
+                        price:
+                          currency: INR
+                          value: '2500'
+                        breakup:
+                          - title: Base fee
+                            price:
+                              value: '2000'
+                              currency: INR
+                          - title: Fee per hearing
+                            price:
+                              value: '500'
+                              currency: INR
+                      tags:
+                        - descriptor:
+                            name: Dispute Details
+                          list:
+                            - descriptor:
+                                name: category
+                              value: Insurance
+                            - descriptor:
+                                name: details
+                              value: Insurance payout rejected to the complainant
+                            - descriptor:
+                                name: claim amount
+                              value: '50000'
+                            - descriptor:
+                                name: claim filing date
+                              value: '2023-06-20'
+                        - descriptor:
+                            name: Respondent details
+                          list:
+                            - descriptor:
+                                name: name
+                              value: Secure Insurance Co
+                            - descriptor:
+                                name: contact person
+                              value: Alisha Sharma
+                            - descriptor:
+                                name: contact details
+                              value: alisha.sharma@example.com
+                            - descriptor:
+                                name: address
+                              value: 456, Insurance Avenue, City XYZ, State ABC
       responses:
         '200':
           description: Acknowledgement of message received after successful validation of schema and signature
@@ -650,6 +1399,211 @@ paths:
                   $ref: '#/components/schemas/Error'
               required:
                 - context
+            examples:
+              The ODR confirms the order for the e-commerce dispute:
+                value:
+                  context:
+                    domain: online-dispute-resolution:0.1.0
+                    location:
+                      country:
+                        code: IND
+                    transaction_id: a9aaecca-10b7-4d19-b640-b047a7c62196
+                    message_id: $bb579fb8-cb82-4824-be12-fcbc405b6608
+                    action: on_init
+                    timestamp: '2023-05-25T05:23:03.443Z'
+                    version: 1.1.0
+                    bap_uri: https://odr-network-bap.becknprotocol.io/
+                    bap_id: odr-bap.becknprotocol.io
+                    bpp_id: alpha-odr-bpp.becknprotocol.io
+                    bpp_uri: https://alpha-odr-network-bpp.becknprotocol.io
+                    ttl: PT10M
+                  message:
+                    order:
+                      id: 572BHD23HD
+                      provider:
+                        id: ODR001
+                        descriptor:
+                          images:
+                            - url: https://www.alpha.com/content/dam/alpha/india/assets/images/header/logo.png
+                          name: Alpha
+                          short_desc: Alpha
+                          long_desc: Alpha Pvt Ltd., India.
+                      items:
+                        - id: ALPHA-ARB-01
+                          descriptor:
+                            code: arbitration-service
+                            name: Arbitration Services
+                      billing:
+                        name: WS Retail
+                        email: adam.keally@example.com
+                      fulfillments:
+                        - customer:
+                            person:
+                              name: John Doe
+                              tags:
+                                - descriptor:
+                                    name: Address
+                                  list:
+                                    - descriptor:
+                                        name: Address
+                                      value: 21A, ABC Appartments, HSR Layout, Bengaluru
+                                    - descriptor:
+                                        name: Area code
+                                      value: '560102'
+                            contact:
+                              phone: +91-9999999999
+                              email: john.doe@example.com
+                          state:
+                            descriptor:
+                              name: Case has been confirmed.
+                      quote:
+                        price:
+                          currency: INR
+                          value: '2500'
+                        breakup:
+                          - title: Base fee
+                            price:
+                              value: '2000'
+                              currency: INR
+                          - title: Fee per hearing
+                            price:
+                              value: '500'
+                              currency: INR
+                      tags:
+                        - descriptor:
+                            name: Dispute Details
+                          list:
+                            - descriptor:
+                                name: category
+                              value: E-Commerce
+                            - descriptor:
+                                name: details
+                              value: Delivered Bluetooth speaker not as shown on the website
+                            - descriptor:
+                                name: purchase price
+                              value: '3500'
+                            - descriptor:
+                                name: product link
+                              value: https://hbo.com/electronics/speakers/ship-bt002.html
+                            - descriptor:
+                                name: claim filing date
+                              value: '2023-06-20'
+                        - descriptor:
+                            name: Respondent details
+                          list:
+                            - descriptor:
+                                name: name
+                              value: WS Retail
+                            - descriptor:
+                                name: contact person
+                              value: Adam Da Keally
+                            - descriptor:
+                                name: contact details
+                              value: adam.keally@example.com
+                            - descriptor:
+                                name: address
+                              value: 456, ECom Avenue, City XYZ, State ABC
+              The ODR confirms the order for the insurance dispute:
+                value:
+                  context:
+                    domain: online-dispute-resolution:0.1.0
+                    location:
+                      country:
+                        code: IND
+                    transaction_id: a9aaecca-10b7-4d19-b640-b047a7c62196
+                    message_id: $bb579fb8-cb82-4824-be12-fcbc405b6608
+                    action: on_init
+                    timestamp: '2023-05-25T05:23:03.443Z'
+                    version: 1.1.0
+                    bap_uri: https://odr-network-bap.becknprotocol.io/
+                    bap_id: odr-bap.becknprotocol.io
+                    bpp_id: alpha-odr-bpp.becknprotocol.io
+                    bpp_uri: https://alpha-odr-network-bpp.becknprotocol.io
+                    ttl: PT10M
+                  message:
+                    order:
+                      id: 572BHD23HD
+                      provider:
+                        id: ODR001
+                        descriptor:
+                          images:
+                            - url: https://www.alpha.com/content/dam/alpha/india/assets/images/header/logo.png
+                          code: ODRALPHA
+                          name: Alpha
+                          short_desc: Alpha
+                          long_desc: Alpha Pvt Ltd., India.
+                      items:
+                        - id: ALPHA-ARB-01
+                          descriptor:
+                            code: arbitration-services
+                            name: Arbitration Services
+                      billing:
+                        name: Secure Insurance Co
+                        email: alisha.sharma@example.com
+                      fulfillments:
+                        - customer:
+                            person:
+                              name: John Doe
+                              tags:
+                                - descriptor:
+                                    name: Address
+                                  list:
+                                    - descriptor:
+                                        name: Address
+                                      value: 21A, ABC Appartments, HSR Layout, Bengaluru
+                                    - descriptor:
+                                        name: Area code
+                                      value: '560102'
+                            contact:
+                              phone: +91-9999999999
+                              email: john.doe@example.com
+                          tags:
+                            - descriptor:
+                                name: Dispute Details
+                              list:
+                                - descriptor:
+                                    name: category
+                                  value: Insurance
+                                - descriptor:
+                                    name: details
+                                  value: Insurance payout rejected to the complainant
+                                - descriptor:
+                                    name: claim amount
+                                  value: '50000'
+                                - descriptor:
+                                    name: claim filing date
+                                  value: '2023-06-20'
+                            - descriptor:
+                                name: Respondent details
+                              list:
+                                - descriptor:
+                                    name: name
+                                  value: Secure Insurance Co
+                                - descriptor:
+                                    name: contact person
+                                  value: Alisha Sharma
+                                - descriptor:
+                                    name: contact details
+                                  value: alisha.sharma@example.com
+                                - descriptor:
+                                    name: address
+                                  value: 456, Insurance Avenue, City XYZ, State ABC
+                          state:
+                            descriptor:
+                              name: Case has been confirmed.
+                      quote:
+                        price:
+                          currency: INR
+                          value: '2500'
+                        breakup:
+                          - title: Base fee
+                            price:
+                              value: '2000'
+                              currency: INR
+                          - title: Fee per hearing
+                            price:
+                              value: '500'
+                              currency: INR
       responses:
         '200':
           description: Acknowledgement of message received after successful validation of schema and signature
@@ -706,6 +1660,109 @@ paths:
                   $ref: '#/components/schemas/Error'
               required:
                 - context
+            examples:
+              The ODR cancels the dispute order:
+                value:
+                  context:
+                    domain: online-dispute-resolution:0.1.0
+                    location:
+                      country:
+                        code: IND
+                    transaction_id: a9aaecca-10b7-4d19-b640-b047a7c62196
+                    message_id: $bb579fb8-cb82-4824-be12-fcbc405b6608
+                    action: on_init
+                    timestamp: '2023-05-25T05:23:03.443Z'
+                    version: 1.1.0
+                    bap_uri: https://odr-network-bap.becknprotocol.io/
+                    bap_id: odr-bap.becknprotocol.io
+                    bpp_id: alpha-odr-bpp.becknprotocol.io
+                    bpp_uri: https://alpha-odr-network-bpp.becknprotocol.io
+                    ttl: PT10M
+                  message:
+                    order:
+                      id: 572BHD23HD
+                      status: CANCELLED
+                      provider:
+                        id: ODR001
+                        descriptor:
+                          images:
+                            - url: https://www.alpha.com/content/dam/alpha/india/assets/images/header/logo.png
+                          code: ODRALPHA
+                          name: Alpha
+                          short_desc: Alpha
+                          long_desc: Alpha Pvt Ltd., India.
+                      items:
+                        - id: ALPHA-ARB-01
+                          descriptor:
+                            code: arbitration-services
+                            name: Arbitration Services
+                      billing:
+                        name: Secure Insurance Co
+                        email: alisha.sharma@example.com
+                      fulfillments:
+                        - customer:
+                            person:
+                              name: John Doe
+                              tags:
+                                - descriptor:
+                                    name: Address
+                                  list:
+                                    - descriptor:
+                                        name: Address
+                                      value: 21A, ABC Appartments, HSR Layout, Bengaluru
+                                    - descriptor:
+                                        name: Area code
+                                      value: '560102'
+                            contact:
+                              phone: +91-9999999999
+                              email: john.doe@example.com
+                          tags:
+                            - descriptor:
+                                name: Dispute Details
+                              list:
+                                - descriptor:
+                                    name: category
+                                  value: Insurance
+                                - descriptor:
+                                    name: details
+                                  value: Insurance payout rejected to the complainant
+                                - descriptor:
+                                    name: claim amount
+                                  value: '50000'
+                                - descriptor:
+                                    name: claim filing date
+                                  value: '2023-06-20'
+                            - descriptor:
+                                name: Respondent details
+                              list:
+                                - descriptor:
+                                    name: name
+                                  value: Secure Insurance Co
+                                - descriptor:
+                                    name: contact person
+                                  value: Alisha Sharma
+                                - descriptor:
+                                    name: contact details
+                                  value: alisha.sharma@example.com
+                                - descriptor:
+                                    name: address
+                                  value: 456, Insurance Avenue, City XYZ, State ABC
+                          state:
+                            descriptor:
+                              name: Case has been cancelled.
+                      quote:
+                        price:
+                          currency: INR
+                          value: '2500'
+                        breakup:
+                          - title: Base fee
+                            price:
+                              value: '2000'
+                              currency: INR
+                          - title: Fee per hearing
+                            price:
+                              value: '500'
+                              currency: INR
       responses:
         '200':
           description: Acknowledgement of message received after successful validation of schema and signature
@@ -762,6 +1819,233 @@ paths:
                   $ref: '#/components/schemas/Error'
               required:
                 - context
+            examples:
+              The ODR updates the agent on the dispute:
+                value:
+                  context:
+                    domain: online-dispute-resolution:0.1.0
+                    location:
+                      country:
+                        code: IND
+                    version: 1.1.0
+                    action: on_update
+                    bap_uri: https://odr-network-bap.becknprotocol.io/
+                    bap_id: odr-bap.becknprotocol.io
+                    bpp_id: odr-bpp.becknprotocol.io
+                    bpp_uri: https://odr-network-bpp.becknprotocol.io
+                    transaction_id: a9aaecca-10b7-4d19-b640-b047a7c62196
+                    message_id: 166a5633-66d2-4ec8-bdcb-65cfeb1e4697
+                    ttl: PT10M
+                    timestamp: '2023-05-25T05:23:03.443Z'
+                  message:
+                    order:
+                      id: 66b7b9bad166
+                      status: ACTIVE
+                      provider:
+                        id: '1'
+                        descriptor:
+                          images:
+                            - url: https://www.alpha.com/content/dam/alpha/india/assets/images/header/logo.png
+                          code: ODRALPHA
+                          name: Alpha
+                          short_desc: Alpha
+                          long_desc: Alpha Pvt Ltd., India.
+                      items:
+                        - id: 66b7b9bad166-4a3f-ada6-ca063dc9d321
+                          descriptor:
+                            code: arbitration-service
+                            name: Arbitration Service
+                      quote:
+                        price:
+                          currency: INR
+                          value: '2500'
+                        breakup:
+                          - title: Base fee
+                            price:
+                              value: '2000'
+                              currency: INR
+                          - title: Fee per hearing
+                            price:
+                              value: '500'
+                              currency: INR
+                      payments:
+                        - params:
+                            amount: '2500'
+                            currency: INR
+                          status: PAID
+                          type: PRE-ORDER
+                      billing:
+                        name: Secure Insurance Co
+                        email: alisha.sharma@example.com
+                      fulfillments:
+                        - customer:
+                            person:
+                              name: John Doe
+                              tags:
+                                - descriptor:
+                                    name: Address
+                                  list:
+                                    - descriptor:
+                                        name: Address
+                                      value: 21A, ABC Appartments, HSR Layout, Bengaluru
+                                    - descriptor:
+                                        name: Area code
+                                      value: '560102'
+                            contact:
+                              phone: +91-9999999999
+                              email: john.doe@example.com
+                          agent:
+                            person:
+                              id: fsjks743DGS
+                              name: Mr Adam Smith
+                          stops:
+                            - time:
+                                label: Hearing Date
+                                Range:
+                                  start: '2023-06-27T00:00:00.00Z'
+                                  end: '2023-07-02T00:00:00.00Z'
+                          state:
+                            descriptor:
+                              name: Case agent has been updated
+                      tags:
+                        - descriptor:
+                            name: Dispute Details
+                          list:
+                            - descriptor:
+                                name: category
+                              value: Insurance
+                            - descriptor:
+                                name: details
+                              value: Insurance payout denied to the complainant
+                        - descriptor:
+                            name: Respondent details
+                          list:
+                            - descriptor:
+                                name: name
+                              value: Secure Life Insurance
+                            - descriptor:
+                                name: address
+                              value: ' E-1 Block, Videocon Tower, near Jhandewalan, Delhi, 110055'
+                      docs:
+                        - descriptor:
+                            code: case-document
+                            name: Case Documentation
+                            short_desc: Download all the case documents from here
+                          mime_type: application/pdf
+                          url: https://alpha.com/case-doc/04389d8c-6a50-4664-9c08-4ee45fef44e8.pdf
+              The ODR updates the hearing date on the dispute:
+                value:
+                  context:
+                    domain: online-dispute-resolution:0.1.0
+                    location:
+                      country:
+                        code: IND
+                    version: 1.1.0
+                    action: on_update
+                    bap_uri: https://odr-network-bap.becknprotocol.io/
+                    bap_id: odr-bap.becknprotocol.io
+                    bpp_id: odr-bpp.becknprotocol.io
+                    bpp_uri: https://odr-network-bpp.becknprotocol.io
+                    transaction_id: a9aaecca-10b7-4d19-b640-b047a7c62196
+                    message_id: 166a5633-66d2-4ec8-bdcb-65cfeb1e4697
+                    ttl: PT10M
+                    timestamp: '2023-05-25T05:23:03.443Z'
+                  message:
+                    order:
+                      id: 66b7b9bad166
+                      status: ACTIVE
+                      provider:
+                        id: '1'
+                        descriptor:
+                          images:
+                            - url: https://www.alpha.com/content/dam/alpha/india/assets/images/header/logo.png
+                          code: ODRALPHA
+                          name: Alpha
+                          short_desc: Alpha
+                          long_desc: Alpha Pvt Ltd., India.
+                      items:
+                        - id: 66b7b9bad166-4a3f-ada6-ca063dc9d321
+                          descriptor:
+                            code: arbitration-service
+                            name: Arbitration Service
+                      quote:
+                        price:
+                          currency: INR
+                          value: '2500'
+                        breakup:
+                          - title: Base fee
+                            price:
+                              value: '2000'
+                              currency: INR
+                          - title: Fee per hearing
+                            price:
+                              value: '500'
+                              currency: INR
+                      payments:
+                        - params:
+                            amount: '2500'
+                            currency: INR
+                          status: PAID
+                          type: PRE-ORDER
+                      billing:
+                        name: Secure Insurance Co
+                        email: alisha.sharma@example.com
+                      fulfillments:
+                        - customer:
+                            person:
+                              name: John Doe
+                              tags:
+                                - descriptor:
+                                    name: Address
+                                  list:
+                                    - descriptor:
+                                        name: Address
+                                      value: 21A, ABC Appartments, HSR Layout, Bengaluru
+                                    - descriptor:
+                                        name: Area code
+                                      value: '560102'
+                            contact:
+                              phone: +91-9999999999
+                              email: john.doe@example.com
+                          agent:
+                            person:
+                              id: fsjks743DGS
+                              name: Mr Adam Smith
+                          stops:
+                            - time:
+                                label: Hearing Date
+                                Range:
+                                  start: '2023-06-27T00:00:00.00Z'
+                                  end: '2023-08-02T00:00:00.00Z'
+                          state:
+                            descriptor:
+                              name: Hearing date has been updated.
+                      tags:
+                        - descriptor:
+                            name: Dispute Details
+                          list:
+                            - descriptor:
+                                name: category
+                              value: Insurance
+                            - descriptor:
+                                name: details
+                              value: Insurance payout denied to the complainant
+                        - descriptor:
+                            name: Respondent details
+                          list:
+                            - descriptor:
+                                name: name
+                              value: Secure Life Insurance
+                            - descriptor:
+                                name: address
+                              value: ' E-1 Block, Videocon Tower, near Jhandewalan, Delhi, 110055'
+                      docs:
+                        - descriptor:
+                            code: case-document
+                            name: Case Documentation
+                            short_desc: Download all the case documents from here
+                          mime_type: application/pdf
+                          url: https://alpha.com/case-doc/04389d8c-6a50-4664-9c08-4ee45fef44e8.pdf
       responses:
         '200':
           description: Acknowledgement of message received after successful validation of schema and signature
@@ -818,6 +2102,227 @@ paths:
                   $ref: '#/components/schemas/Error'
               required:
                 - context
+            examples:
+              ODR platform sends an update about the dispute that is in progress:
+                value:
+                  context:
+                    domain: online-dispute-resolution:0.1.0
+                    location:
+                      country:
+                        code: IND
+                    version: 1.1.0
+                    action: on_status
+                    bap_uri: https://odr-network-bap.becknprotocol.io/
+                    bap_id: odr-bap.becknprotocol.io
+                    bpp_id: odr-bpp.becknprotocol.io
+                    bpp_uri: https://odr-network-bpp.becknprotocol.io
+                    transaction_id: a9aaecca-10b7-4d19-b640-b047a7c62196
+                    message_id: 166a5633-66d2-4ec8-bdcb-65cfeb1e4697
+                    ttl: PT10M
+                    timestamp: '2023-05-25T05:23:03.443Z'
+                  message:
+                    order:
+                      id: 66b7b9bad166
+                      status: ACTIVE
+                      provider:
+                        id: '1'
+                        descriptor:
+                          images:
+                            - url: https://www.alpha.com/content/dam/alpha/india/assets/images/header/logo.png
+                          name: Alpha
+                          short_desc: Alpha
+                          long_desc: Alpha Pvt Ltd., India.
+                      items:
+                        - id: 66b7b9bad166-4a3f-ada6-ca063dc9d321
+                          descriptor:
+                            code: arbitration-service
+                            name: Arbitration Service
+                      quote:
+                        price:
+                          currency: INR
+                          value: '2500'
+                        breakup:
+                          - title: Base fee
+                            price:
+                              value: '2000'
+                              currency: INR
+                          - title: Fee per hearing
+                            price:
+                              value: '500'
+                              currency: INR
+                      payments:
+                        - params:
+                            amount: '2500'
+                            currency: INR
+                          status: PAID
+                          type: PRE-ORDER
+                      fulfillments:
+                        - customer:
+                            person:
+                              name: John Doe
+                              tags:
+                                - descriptor:
+                                    name: Address
+                                  list:
+                                    - descriptor:
+                                        name: Address
+                                      value: 21A, ABC Appartments, HSR Layout, Bengaluru
+                                    - descriptor:
+                                        name: Area code
+                                      value: '560102'
+                            contact:
+                              phone: +91-9999999999
+                              email: john.doe@example.com
+                          agent:
+                            person:
+                              id: ca063dc9d321
+                              name: Mr John Smith
+                          stops:
+                            - time:
+                                label: Hearing Date
+                                Range:
+                                  start: '2023-06-27T00:00:00.00Z'
+                                  end: '2023-07-02T00:00:00.00Z'
+                          state:
+                            descriptor:
+                              code: arbitration-in-progress
+                              name: Arbitration In Progress
+                      tags:
+                        - descriptor:
+                            name: Dispute Details
+                          list:
+                            - descriptor:
+                                name: category
+                              value: Insurance
+                            - descriptor:
+                                name: details
+                              value: Insurance payout denied to the complainant
+                        - descriptor:
+                            name: Respondent details
+                          list:
+                            - descriptor:
+                                name: name
+                              value: Secure Life Insurance
+                            - descriptor:
+                                name: address
+                              value: ' E-1 Block, Videocon Tower, near Jhandewalan, Delhi, 110055'
+                      docs:
+                        - descriptor:
+                            code: case-document
+                            name: Case Documentation
+                            short_desc: Download all the case documents from here
+                          mime_type: application/pdf
+                          url: https://alpha.com/case-doc/04389d8c-6a50-4664-9c08-4ee45fef44e8.pdf
+              ODR platform sends an update about the dispute that is complete:
+                value:
+                  context:
+                    domain: online-dispute-resolution:0.1.0
+                    location:
+                      country:
+                        code: IND
+                    version: 1.1.0
+                    action: on_status
+                    bap_uri: https://odr-network-bap.becknprotocol.io/
+                    bap_id: odr-bap.becknprotocol.io
+                    bpp_id: odr-bpp.becknprotocol.io
+                    bpp_uri: https://odr-network-bpp.becknprotocol.io
+                    transaction_id: a9aaecca-10b7-4d19-b640-b047a7c62196
+                    message_id: 166a5633-66d2-4ec8-bdcb-65cfeb1e4697
+                    ttl: PT10M
+                    timestamp: '2023-05-25T05:23:03.443Z'
+                  message:
+                    order:
+                      id: 66b7b9bad166
+                      status: COMPLETE
+                      provider:
+                        id: '1'
+                        descriptor:
+                          images:
+                            - url: https://www.alpha.com/content/dam/alpha/india/assets/images/header/logo.png
+                          name: Alpha
+                          short_desc: Alpha
+                          long_desc: Alpha Pvt Ltd., India.
+                      items:
+                        - id: 66b7b9bad166-4a3f-ada6-ca063dc9d321
+                          descriptor:
+                            code: arbitration-service
+                            name: Arbitration Service
+                      quote:
+                        price:
+                          currency: INR
+                          value: '2500'
+                        breakup:
+                          - title: Base fee
+                            price:
+                              value: '2000'
+                              currency: INR
+                          - title: Fee per hearing
+                            price:
+                              value: '500'
+                              currency: INR
+                      payments:
+                        - params:
+                            amount: '2500'
+                            currency: INR
+                          status: PAID
+                          type: PRE-ORDER
+                      fulfillments:
+                        - customer:
+                            person:
+                              name: John Doe
+                              tags:
+                                - descriptor:
+                                    name: Address
+                                  list:
+                                    - descriptor:
+                                        name: Address
+                                      value: 21A, ABC Appartments, HSR Layout, Bengaluru
+                                    - descriptor:
+                                        name: Area code
+                                      value: '560102'
+                            contact:
+                              phone: +91-9999999999
+                              email: john.doe@example.com
+                          agent:
+                            person:
+                              id: ca063dc9d321
+                              name: Mr John Smith
+                          stops:
+                            - time:
+                                label: Hearing Date
+                                Range:
+                                  start: '2023-06-27T00:00:00.00Z'
+                                  end: '2023-07-02T00:00:00.00Z'
+                          state:
+                            descriptor:
+                              code: complaint-resolved
+                              name: Complaint Resolved
+                      tags:
+                        - descriptor:
+                            name: Dispute Details
+                          list:
+                            - descriptor:
+                                name: category
+                              value: Insurance
+                            - descriptor:
+                                name: details
+                              value: Insurance payout denied to the complainant
+                        - descriptor:
+                            name: Respondent details
+                          list:
+                            - descriptor:
+                                name: name
+                              value: Secure Life Insurance
+                            - descriptor:
+                                name: address
+                              value: ' E-1 Block, Videocon Tower, near Jhandewalan, Delhi, 110055'
+                      docs:
+                        - descriptor:
+                            code: case-document
+                            name: Case Documentation
+                            short_desc: Download all the case documents from here
+                          mime_type: application/pdf
+                          url: https://alpha.com/case-doc/04389d8c-6a50-4664-9c08-4ee45fef44e8.pdf
       responses:
         '200':
           description: Acknowledgement of message received after successful validation of schema and signature
@@ -897,6 +2402,30 @@ paths:
                     $ref: '#/components/schemas/Error'
                 required:
                   - message
+              examples:
+                The ODR platform responds with support details:
+                  value:
+                    context:
+                      domain: online-dispute-resolution:0.1.0
+                      location:
+                        country:
+                          code: IND
+                      transaction_id: a9aaecca-10b7-4d19-b640-b047a7c62196
+                      message_id: $bb579fb8-cb82-4824-be12-fcbc405b6608
+                      action: on_support
+                      timestamp: '2023-05-25T05:23:03.443Z'
+                      version: 1.1.0
+                      bap_uri: https://odr-network-bap.becknprotocol.io/
+                      bap_id: odr-bap.becknprotocol.io
+                      bpp_id: alpha-odr-bpp.becknprotocol.io
+                      bpp_uri: https://alpha-odr-network-bpp.becknprotocol.io
+                      ttl: PT10M
+                    message:
+                      support:
+                        order_id: 572BHD23HD
+                        phone: 1800 1080
+                        email: info@alpha.live
+                        url: https://www.alpha.com/helpdesk
 components:
   securitySchemes:
     SubscriberAuth:

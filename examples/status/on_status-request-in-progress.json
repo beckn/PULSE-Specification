@@ -26,12 +26,12 @@
         "descriptor": {
           "images": [
             {
-              "url": "https://www.sama.com/content/dam/sama/india/assets/images/header/logo.png"
+              "url": "https://www.alpha.com/content/dam/alpha/india/assets/images/header/logo.png"
             }
           ],
-          "name": "Sama",
-          "short_desc": "Sama",
-          "long_desc": "Sama Pvt Ltd., India."
+          "name": "Alpha",
+          "short_desc": "Alpha",
+          "long_desc": "Alpha Pvt Ltd., India."
         }
       },
       "items": [
@@ -161,7 +161,7 @@
               "descriptor": {
                 "name": "name"
               },
-              "value": "ICICI Prudential Life Insurance"
+              "value": "Secure Life Insurance"
             },
             {
               "descriptor": {
@@ -180,7 +180,7 @@
             "short_desc": "Download all the case documents from here"
           },
           "mime_type": "application/pdf",
-          "url": "https://sama.com/case-doc/04389d8c-6a50-4664-9c08-4ee45fef44e8.pdf"
+          "url": "https://alpha.com/case-doc/04389d8c-6a50-4664-9c08-4ee45fef44e8.pdf"
         }
       ]
     }
