@@ -1,4 +1,3 @@
-
 openapi: 3.0.0
 info:
   title: Beckn ODR API Specification
@@ -736,6 +735,84 @@ paths:
                     $ref: '#/components/schemas/Error'
                 required:
                   - message
+  /rating:
+    post:
+      tags:
+        - Beckn Provider Platform (BPP)
+      description: Provide feedback on a service provided by the ODR.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                context:
+                  allOf:
+                    - $ref: '#/components/schemas/Context'
+                    - properties:
+                        action:
+                          enum:
+                            - rating
+                      required:
+                        - action
+                message:
+                  type: object
+                  properties:
+                    ratings:
+                      type: array
+                      items:
+                        $ref: '#/components/schemas/Rating'
+              required:
+                - context
+                - message
+            examples:
+              Provide feedback on a service provided by the ODR:
+                value:
+                  context:
+                    domain: online-dispute-resolution:0.1.0
+                    location:
+                      country:
+                        code: IND
+                    transaction_id: a9aaecca-10b7-4d19-b640-b047a7c62196
+                    message_id: $bb579fb8-cb82-4824-be12-fcbc405b6608
+                    action: rating
+                    timestamp: '2023-05-25T05:23:03.443Z'
+                    version: 1.1.0
+                    bap_uri: https://odr-network-bap.becknprotocol.io/
+                    bap_id: odr-bap.becknprotocol.io
+                    bpp_id: alpha-odr-bpp.becknprotocol.io
+                    bpp_uri: https://alpha-odr-network-bpp.becknprotocol.io
+                    ttl: PT10M
+                  message:
+                    ratings:
+                      - id: a9aaecca-10b7-4d19-b640-b047a7c621961676906777032
+                        rating_category: portal
+                        value: '4'
+      responses:
+        '200':
+          description: Acknowledgement of message received after successful validation of schema and signature
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: object
+                    properties:
+                      ack:
+                        allOf:
+                          - $ref: '#/components/schemas/Ack'
+                          - properties:
+                              status:
+                                enum:
+                                  - ACK
+                                  - NACK
+                    required:
+                      - ack
+                  error:
+                    $ref: '#/components/schemas/Error'
+                required:
+                  - message
   /support:
     post:
       tags:
@@ -844,7 +921,7 @@ paths:
                   $ref: '#/components/schemas/Error'
               required:
                 - context
-            examples: 
+            examples:
               ODR platforms respond with all the services they provider:
                 value:
                   context:
@@ -2348,6 +2425,87 @@ paths:
                     $ref: '#/components/schemas/Error'
                 required:
                   - message
+  /on_rating:
+    post:
+      tags:
+        - Beckn Application Platform (BAP)
+      description: Provide feedback on a service
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                context:
+                  allOf:
+                    - $ref: '#/components/schemas/Context'
+                    - properties:
+                        action:
+                          enum:
+                            - on_rating
+                      required:
+                        - action
+                message:
+                  type: object
+                  properties:
+                    feedback_form:
+                      description: A feedback form to allow the user to provide additional information on the rating provided
+                      allOf:
+                        - $ref: '#/components/schemas/XInput'
+                error:
+                  $ref: '#/components/schemas/Error'
+              required:
+                - context
+                - message
+            examples:
+              Returns a form to provide feedback:
+                value:
+                  context:
+                    domain: online-dispute-resolution:0.1.0
+                    location:
+                      country:
+                        code: IND
+                    transaction_id: a9aaecca-10b7-4d19-b640-b047a7c62196
+                    message_id: $bb579fb8-cb82-4824-be12-fcbc405b6608
+                    action: on_rating
+                    timestamp: '2023-05-25T05:23:03.443Z'
+                    version: 1.1.0
+                    bap_uri: https://odr-network-bap.becknprotocol.io/
+                    bap_id: odr-bap.becknprotocol.io
+                    bpp_id: alpha-odr-bpp.becknprotocol.io
+                    bpp_uri: https://alpha-odr-network-bpp.becknprotocol.io
+                    ttl: PT10M
+                  message:
+                    feedback_form:
+                      xinput:
+                        form:
+                          url: https://alpha-odr-network-bpp.becknprotocol.io/feedback/portal
+                        required: 'false'
+      responses:
+        '200':
+          description: Acknowledgement of message received after successful validation of schema and signature
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: object
+                    properties:
+                      ack:
+                        allOf:
+                          - $ref: '#/components/schemas/Ack'
+                          - properties:
+                              status:
+                                enum:
+                                  - ACK
+                                  - NACK
+                    required:
+                      - ack
+                  error:
+                    $ref: '#/components/schemas/Error'
+                required:
+                  - message
   /on_support:
     post:
       tags:
@@ -2464,7 +2622,7 @@ components:
       description: Describes a postal address.
       type: string
     Agent:
-      description: 'Describes the direct performer, driver or executor that fulfills an order. It is usually a person. But in some rare cases, it could be a non-living entity like a drone, or a bot. Some examples of agents are Doctor in the healthcare sector, a driver in the mobility sector, or a delivery person in the logistics sector. This object can be set at any stage of the order lifecycle. This can be set at the discovery stage when the BPP wants to provide details on the agent fulfilling the order, like in healthcare, where the doctor''s name appears during search. This object can also used to search for a particular person that the customer wants fulfilling an order. Sometimes, this object gets instantiated after the order is confirmed, like in the case of on-demand taxis, where the driver is assigned after the user confirms the ride.'
+      description: "Describes the direct performer, driver or executor that fulfills an order. It is usually a person. But in some rare cases, it could be a non-living entity like a drone, or a bot. Some examples of agents are Doctor in the healthcare sector, a driver in the mobility sector, or a delivery person in the logistics sector. This object can be set at any stage of the order lifecycle. This can be set at the discovery stage when the BPP wants to provide details on the agent fulfilling the order, like in healthcare, where the doctor's name appears during search. This object can also used to search for a particular person that the customer wants fulfilling an order. Sometimes, this object gets instantiated after the order is confirmed, like in the case of on-demand taxis, where the driver is assigned after the user confirms the ride."
       properties:
         person:
           $ref: '#/components/schemas/Person'
@@ -2655,7 +2813,7 @@ components:
           type: object
           description: A Jcard object as per draft-ietf-jcardcal-jcard-03 specification
     Context:
-      description: 'Every API call in beckn protocol has a context. It provides a high-level overview to the receiver about the nature of the intended transaction. Typically, it is the BAP that sets the transaction context based on the consumer''s location and action on their UI. But sometimes, during unsolicited callbacks, the BPP also sets the transaction context but it is usually the same as the context of a previous full-cycle, request-callback interaction between the BAP and the BPP. The context object contains four types of fields. <ol><li>Demographic information about the transaction using fields like `domain`, `country`, and `region`.</li><li>Addressing details like the sending and receiving platform''s ID and API URL.</li><li>Interoperability information like the protocol version that implemented by the sender and,</li><li>Transaction details like the method being called at the receiver''s endpoint, the transaction_id that represents an end-to-end user session at the BAP, a message ID to pair requests with callbacks, a timestamp to capture sending times, a ttl to specifiy the validity of the request, and a key to encrypt information if necessary.</li></ol> This object must be passed in every interaction between a BAP and a BPP. In HTTP/S implementations, it is not necessary to send the context during the synchronous response. However, in asynchronous protocols, the context must be sent during all interactions,'
+      description: "Every API call in beckn protocol has a context. It provides a high-level overview to the receiver about the nature of the intended transaction. Typically, it is the BAP that sets the transaction context based on the consumer's location and action on their UI. But sometimes, during unsolicited callbacks, the BPP also sets the transaction context but it is usually the same as the context of a previous full-cycle, request-callback interaction between the BAP and the BPP. The context object contains four types of fields. <ol><li>Demographic information about the transaction using fields like `domain`, `country`, and `region`.</li><li>Addressing details like the sending and receiving platform's ID and API URL.</li><li>Interoperability information like the protocol version that implemented by the sender and,</li><li>Transaction details like the method being called at the receiver's endpoint, the transaction_id that represents an end-to-end user session at the BAP, a message ID to pair requests with callbacks, a timestamp to capture sending times, a ttl to specifiy the validity of the request, and a key to encrypt information if necessary.</li></ol> This object must be passed in every interaction between a BAP and a BPP. In HTTP/S implementations, it is not necessary to send the context during the synchronous response. However, in asynchronous protocols, the context must be sent during all interactions,"
       type: object
       properties:
         domain:
@@ -2776,7 +2934,7 @@ components:
           items:
             $ref: '#/components/schemas/Image'
     Domain:
-      description: 'Described the industry sector or sub-sector. The network policy should contain codes for all the industry sectors supported by the network. Domains can be created in varying levels of granularity. The granularity of a domain can be decided by the participants of the network. Too broad domains will result in irrelevant search broadcast calls to BPPs that don''t have services supporting the domain. Too narrow domains will result in a large number of registry entries for each BPP. It is recommended that network facilitators actively collaborate with various working groups and network participants to carefully choose domain codes keeping in mind relevance, performance, and opportunity cost. It is recommended that networks choose broad domains like mobility, logistics, healthcare etc, and progressively granularize them as and when the number of network participants for each domain grows large.'
+      description: "Described the industry sector or sub-sector. The network policy should contain codes for all the industry sectors supported by the network. Domains can be created in varying levels of granularity. The granularity of a domain can be decided by the participants of the network. Too broad domains will result in irrelevant search broadcast calls to BPPs that don't have services supporting the domain. Too narrow domains will result in a large number of registry entries for each BPP. It is recommended that network facilitators actively collaborate with various working groups and network participants to carefully choose domain codes keeping in mind relevance, performance, and opportunity cost. It is recommended that networks choose broad domains like mobility, logistics, healthcare etc, and progressively granularize them as and when the number of network participants for each domain grows large."
       type: object
       properties:
         name:
@@ -2928,7 +3086,7 @@ components:
           description: Height of the image in pixels
           type: string
     Intent:
-      description: 'The intent to buy or avail a product or a service. The BAP can declare the intent of the consumer containing <ul><li>What they want (A product, service, offer)</li><li>Who they want (A seller, service provider, agent etc)</li><li>Where they want it and where they want it from</li><li>When they want it (start and end time of fulfillment</li><li>How they want to pay for it</li></ul><br>This has properties like descriptor,provider,fulfillment,payment,category,offer,item,tags<br>This is typically used by the BAP to send the purpose of the user''s search to the BPP. This will be used by the BPP to find products or services it offers that may match the user''s intent.<br>For example, in Mobility, the mobility consumer declares a mobility intent. In this case, the mobility consumer declares information that describes various aspects of their journey like,<ul><li>Where would they like to begin their journey (intent.fulfillment.start.location)</li><li>Where would they like to end their journey (intent.fulfillment.end.location)</li><li>When would they like to begin their journey (intent.fulfillment.start.time)</li><li>When would they like to end their journey (intent.fulfillment.end.time)</li><li>Who is the transport service provider they would like to avail services from (intent.provider)</li><li>Who is traveling (This is not recommended in public networks) (intent.fulfillment.customer)</li><li>What kind of fare product would they like to purchase (intent.item)</li><li>What add-on services would they like to avail</li><li>What offers would they like to apply on their booking (intent.offer)</li><li>What category of services would they like to avail (intent.category)</li><li>What additional luggage are they carrying</li><li>How would they like to pay for their journey (intent.payment)</li></ul><br>For example, in health domain, a consumer declares the intent for a lab booking the describes various aspects of their booking like,<ul><li>Where would they like to get their scan/test done (intent.fulfillment.start.location)</li><li>When would they like to get their scan/test done (intent.fulfillment.start.time)</li><li>When would they like to get the results of their test/scan (intent.fulfillment.end.time)</li><li>Who is the service provider they would like to avail services from (intent.provider)</li><li>Who is getting the test/scan (intent.fulfillment.customer)</li><li>What kind of test/scan would they like to purchase (intent.item)</li><li>What category of services would they like to avail (intent.category)</li><li>How would they like to pay for their journey (intent.payment)</li></ul>'
+      description: "The intent to buy or avail a product or a service. The BAP can declare the intent of the consumer containing <ul><li>What they want (A product, service, offer)</li><li>Who they want (A seller, service provider, agent etc)</li><li>Where they want it and where they want it from</li><li>When they want it (start and end time of fulfillment</li><li>How they want to pay for it</li></ul><br>This has properties like descriptor,provider,fulfillment,payment,category,offer,item,tags<br>This is typically used by the BAP to send the purpose of the user's search to the BPP. This will be used by the BPP to find products or services it offers that may match the user's intent.<br>For example, in Mobility, the mobility consumer declares a mobility intent. In this case, the mobility consumer declares information that describes various aspects of their journey like,<ul><li>Where would they like to begin their journey (intent.fulfillment.start.location)</li><li>Where would they like to end their journey (intent.fulfillment.end.location)</li><li>When would they like to begin their journey (intent.fulfillment.start.time)</li><li>When would they like to end their journey (intent.fulfillment.end.time)</li><li>Who is the transport service provider they would like to avail services from (intent.provider)</li><li>Who is traveling (This is not recommended in public networks) (intent.fulfillment.customer)</li><li>What kind of fare product would they like to purchase (intent.item)</li><li>What add-on services would they like to avail</li><li>What offers would they like to apply on their booking (intent.offer)</li><li>What category of services would they like to avail (intent.category)</li><li>What additional luggage are they carrying</li><li>How would they like to pay for their journey (intent.payment)</li></ul><br>For example, in health domain, a consumer declares the intent for a lab booking the describes various aspects of their booking like,<ul><li>Where would they like to get their scan/test done (intent.fulfillment.start.location)</li><li>When would they like to get their scan/test done (intent.fulfillment.start.time)</li><li>When would they like to get the results of their test/scan (intent.fulfillment.end.time)</li><li>Who is the service provider they would like to avail services from (intent.provider)</li><li>Who is getting the test/scan (intent.fulfillment.customer)</li><li>What kind of test/scan would they like to purchase (intent.item)</li><li>What category of services would they like to avail (intent.category)</li><li>How would they like to pay for their journey (intent.payment)</li></ul>"
       type: object
       properties:
         descriptor:
@@ -3205,7 +3363,7 @@ components:
       type: object
       properties:
         mimetype:
-          description: 'indicates the nature and format of the document, file, or assortment of bytes. MIME types are defined and standardized in IETF''s RFC 6838'
+          description: "indicates the nature and format of the document, file, or assortment of bytes. MIME types are defined and standardized in IETF's RFC 6838"
           type: string
         url:
           description: The URL of the file
@@ -3376,14 +3534,14 @@ components:
         contact:
           $ref: '#/components/schemas/Contact'
     Payment:
-      description: 'Describes the terms of settlement between the BAP and the BPP for a single transaction. When instantiated, this object contains <ol><li>the amount that has to be settled,</li><li>The payment destination destination details</li><li>When the settlement should happen, and</li><li>A transaction reference ID</li></ol>. During a transaction, the BPP reserves the right to decide the terms of payment. However, the BAP can send its terms to the BPP first. If the BPP does not agree to those terms, it must overwrite the terms and return them to the BAP. If overridden, the BAP must either agree to the terms sent by the BPP in order to preserve the provider''s autonomy, or abort the transaction. In case of such disagreements, the BAP and the BPP can perform offline negotiations on the payment terms. Once an agreement is reached, the BAP and BPP can resume transactions.'
+      description: "Describes the terms of settlement between the BAP and the BPP for a single transaction. When instantiated, this object contains <ol><li>the amount that has to be settled,</li><li>The payment destination destination details</li><li>When the settlement should happen, and</li><li>A transaction reference ID</li></ol>. During a transaction, the BPP reserves the right to decide the terms of payment. However, the BAP can send its terms to the BPP first. If the BPP does not agree to those terms, it must overwrite the terms and return them to the BAP. If overridden, the BAP must either agree to the terms sent by the BPP in order to preserve the provider's autonomy, or abort the transaction. In case of such disagreements, the BAP and the BPP can perform offline negotiations on the payment terms. Once an agreement is reached, the BAP and BPP can resume transactions."
       type: object
       properties:
         id:
           description: ID of the payment term that can be referred at an item or an order level in a catalog
           type: string
         collected_by:
-          description: 'This field indicates who is the collector of payment. The BAP can set this value to ''bap'' if it wants to collect the payment first and  settle it to the BPP. If the BPP agrees to those terms, the BPP should not send the payment url. Alternatively, the BPP can set this field with the value ''bpp'' if it wants the payment to be made directly.'
+          description: "This field indicates who is the collector of payment. The BAP can set this value to 'bap' if it wants to collect the payment first and  settle it to the BPP. If the BPP agrees to those terms, the BPP should not send the payment url. Alternatively, the BPP can set this field with the value 'bpp' if it wants the payment to be made directly."
         url:
           type: string
           description: 'A payment url to be called by the BAP. If empty, then the payment is to be done offline. The details of payment should be present in the params object. If tl_method = http/get, then the payment details will be sent as url params. Two url param values, ```$transaction_id``` and ```$amount``` are mandatory.'
