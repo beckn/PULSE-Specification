@@ -6,53 +6,63 @@
         "code": "IND"
       }
     },
-    "version": "1.1.0",
+    "transaction_id": "a9aaecca-10b7-4d19-b640-b047a7c62196",
+    "message_id": "$bb579fb8-cb82-4824-be12-fcbc405b6608",
     "action": "on_status",
+    "timestamp": "2023-05-25T05:23:03.443Z",
+    "version": "1.1.0",
     "bap_uri": "https://odr-network-bap.becknprotocol.io/",
     "bap_id": "odr-bap.becknprotocol.io",
-    "bpp_id": "odr-bpp.becknprotocol.io",
-    "bpp_uri": "https://odr-network-bpp.becknprotocol.io",
-    "transaction_id": "a9aaecca-10b7-4d19-b640-b047a7c62196",
-    "message_id": "166a5633-66d2-4ec8-bdcb-65cfeb1e4697",
-    "ttl": "PT10M",
-    "timestamp": "2023-05-25T05:23:03.443Z"
+    "bpp_id": "alpha-odr-bpp.becknprotocol.io",
+    "bpp_uri": "https://alpha-odr-network-bpp.becknprotocol.io",
+    "ttl": "PT10M"
   },
   "message": {
     "order": {
-      "id": "66b7b9bad166",
-      "status": "ACTIVE",
+      "id": "fcbc405b6608",
       "provider": {
-        "id": "1",
+        "id": "ODR001",
         "descriptor": {
           "images": [
             {
-              "url": "https://www.alpha.com/content/dam/alpha/india/assets/images/header/logo.png"
+              "url": "https://www.alpha.com/content/dam/alpha/india/assets/images/header/logo.png",
+              "size_type": "xs"
             }
           ],
           "name": "Alpha",
-          "short_desc": "Alpha",
-          "long_desc": "Alpha Pvt Ltd., India."
+          "short_desc": "Alpha Pvt Ltd., India.",
+          "long_desc": "Alpha Pvt Ltd., India. provides online dispute resolution services. Out platform facilitates easy access to high quality service providers which helps avoid hassles of court, saving time and money and relationships.",
+          "additional_desc": {
+            "url": "https://www.alpha.com/content/aboutus"
+          }
         }
       },
       "items": [
         {
-          "id": "66b7b9bad166-4a3f-ada6-ca063dc9d321",
+          "id": "ALPHA-ARB-01",
           "descriptor": {
             "code": "arbitration-service",
-            "name": "Arbitration Service"
+            "name": "Arbitration Services"
           }
         }
       ],
       "quote": {
         "price": {
           "currency": "INR",
-          "value": "2500"
+          "value": "12500"
         },
         "breakup": [
           {
             "title": "Base fee",
             "price": {
-              "value": "2000",
+              "value": "7000",
+              "currency": "INR"
+            }
+          },
+          {
+            "title": "Agent fees",
+            "price": {
+              "value": "5000",
               "currency": "INR"
             }
           },
@@ -65,42 +75,17 @@
           }
         ]
       },
-      "payments": [
-        {
-          "params": {
-            "amount": "2500",
-            "currency": "INR"
-          },
-          "status": "PAID",
-          "type": "PRE-ORDER"
-        }
-      ],
+      "billing": {
+        "name": "John Doe",
+        "email": "john.doe@example.com",
+        "address": "21A, ABC Appartments, HSR Layout, Bengaluru",
+        "city": "Bengaluru"
+      },
       "fulfillments": [
         {
           "customer": {
             "person": {
-              "name": "John Doe",
-              "tags": [
-                {
-                  "descriptor": {
-                    "name": "Address"
-                  },
-                  "list": [
-                    {
-                      "descriptor": {
-                        "name": "Address"
-                      },
-                      "value": "21A, ABC Appartments, HSR Layout, Bengaluru"
-                    },
-                    {
-                      "descriptor": {
-                        "name": "Area code"
-                      },
-                      "value": "560102"
-                    }
-                  ]
-                }
-              ]
+              "name": "John Doe"
             },
             "contact": {
               "phone": "+91-9999999999",
@@ -109,78 +94,61 @@
           },
           "agent": {
             "person": {
-              "id": "ca063dc9d321",
-              "name": "Mr John Smith"
+              "id": "fsjks743DGS",
+              "name": "Mr Adam Smith"
             }
           },
-          "stops": [
-            {
-              "time": {
-                "label": "Hearing Date",
-                "Range": {
-                  "start": "2023-06-27T00:00:00.00Z",
-                  "end": "2023-07-02T00:00:00.00Z"
-                }
-              }
-            }
-          ],
           "state": {
             "descriptor": {
               "code": "arbitration-in-progress",
               "name": "Arbitration In Progress"
             }
+          },
+          "stops": [
+            {
+              "instructions": {
+                "name": "Instructions after order confirm",
+                "short_desc": "Navigate to the following provider link to continue the order",
+                "media": [
+                  {
+                    "url": "https://alpha-odr-network-bpp.becknprotocol.io/dispute"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ],
+      "payments": [
+        {
+          "type": "ON-ORDER",
+          "params": {
+            "amount": "12000",
+            "currency": "INR"
+          },
+          "status": "PAID",
+          "time": {
+            "range": {
+              "start": "01-06-2023 00:00:00",
+              "end": "30-06-2023 23:59:59"
+            }
           }
         }
       ],
-      "tags": [
+      "cancellation_terms": [
         {
-          "descriptor": {
-            "name": "Dispute Details"
-          },
-          "list": [
-            {
-              "descriptor": {
-                "name": "category"
-              },
-              "value": "Insurance"
-            },
-            {
-              "descriptor": {
-                "name": "details"
-              },
-              "value": "Insurance payout denied to the complainant"
+          "fulfillment_state": {
+            "descriptor": {
+              "code": "dispute-hearing-in-progress"
             }
-          ]
-        },
-        {
-          "descriptor": {
-            "name": "Respondent details"
           },
-          "list": [
-            {
-              "descriptor": {
-                "name": "name"
-              },
-              "value": "Secure Life Insurance"
-            },
-            {
-              "descriptor": {
-                "name": "address"
-              },
-              "value": " E-1 Block, Videocon Tower, near Jhandewalan, Delhi, 110055"
-            }
-          ]
-        }
-      ],
-      "docs": [
-        {
-          "descriptor": {
-            "code": "case-document",
-            "name": "Case Documentation",
-            "short_desc": "Download all the case documents from here"
+          "cancellation_fee": {
+            "percentage": "30%"
           },
-          "mime_type": "application/pdf",
-          "url": "https://alpha.com/case-doc/04389d8c-6a50-4664-9c08-4ee45fef44e8.pdf"
+          "external_ref": {
+            "mimetype": "text/html",
+            "url": "https://alpha.in/charge/tnc.html"
+          }
         }
       ]
     }

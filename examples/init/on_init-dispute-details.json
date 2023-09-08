@@ -8,7 +8,7 @@
     },
     "transaction_id": "a9aaecca-10b7-4d19-b640-b047a7c62196",
     "message_id": "$bb579fb8-cb82-4824-be12-fcbc405b6608",
-    "action": "on_cancel",
+    "action": "on_init",
     "timestamp": "2023-05-25T05:23:03.443Z",
     "version": "1.1.0",
     "bap_uri": "https://odr-network-bap.becknprotocol.io/",
@@ -20,7 +20,6 @@
   "message": {
     "order": {
       "id": "fcbc405b6608",
-      "status": "CANCELLED",
       "provider": {
         "id": "ODR001",
         "descriptor": {
@@ -44,6 +43,28 @@
           "descriptor": {
             "code": "arbitration-service",
             "name": "Arbitration Services"
+          },
+          "xinput": {
+            "head": {
+              "descriptor": {
+                "name": "Dispute Details"
+              },
+              "index": {
+                "min": 0,
+                "cur": 2,
+                "max": 2
+              },
+              "headings": [
+                "Respondent Details",
+                "Consent Form",
+                "Dispute Details"
+              ]
+            },
+            "form": {
+              "mime_type": "text/html",
+              "url": "https://6vs8xnx5i7.alpha.co.in/agreement/xinput/formid/a23f2fdfbbb8ac402bfd54f"
+            },
+            "required": true
           }
         }
       ],
@@ -71,13 +92,6 @@
             "title": "Fee per hearing",
             "price": {
               "value": "500",
-              "currency": "INR"
-            }
-          },
-          {
-            "title": "Cancellation fees",
-            "price": {
-              "value": "5000",
               "currency": "INR"
             }
           }
@@ -108,8 +122,8 @@
           },
           "state": {
             "descriptor": {
-              "code": "dispute-cancelled",
-              "name": "Dispute Order Cancelled"
+              "code": "arbitration-initiated",
+              "name": "Arbitration for dispute order initialized"
             }
           }
         }
@@ -117,11 +131,12 @@
       "payments": [
         {
           "type": "ON-ORDER",
+          "url": "https://payment.alphaodr.in",
           "params": {
             "amount": "12000",
             "currency": "INR"
           },
-          "status": "PAID",
+          "status": "NOT-PAID",
           "time": {
             "range": {
               "start": "01-06-2023 00:00:00",

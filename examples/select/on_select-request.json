@@ -29,8 +29,11 @@
             }
           ],
           "name": "Alpha",
-          "short_desc": "Alpha",
-          "long_desc": "Alpha Pvt Ltd., India."
+          "short_desc": "Alpha Pvt Ltd., India.",
+          "long_desc": "Alpha Pvt Ltd., India. provides online dispute resolution services. Out platform facilitates easy access to high quality service providers which helps avoid hassles of court, saving time and money and relationships.",
+          "additional_desc": {
+            "url": "https://www.alpha.com/content/aboutus"
+          }
         }
       },
       "items": [
@@ -39,26 +42,6 @@
           "descriptor": {
             "code": "arbitration-service",
             "name": "Arbitration Services"
-          },
-          "xinput": {
-            "head": {
-              "descriptor": {
-                "name": "Case Respondent Information"
-              },
-              "index": {
-                "min": 0,
-                "cur": 0,
-                "max": 0
-              },
-              "headings": [
-                "Case Respondent Information"
-              ]
-            },
-            "form": {
-              "mime_type": "text/html",
-              "url": "https://6vs8xnx5i7.alpha.co.in/upload-case-files/xinput/formid/a23f2fdfbbb8ac402bfd54f"
-            },
-            "required": true
           }
         }
       ],

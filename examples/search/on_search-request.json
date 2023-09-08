@@ -34,29 +34,46 @@
             }
           ],
           "name": "Alpha",
-          "short_desc": "Alpha",
-          "long_desc": "Alpha Pvt Ltd., India."
+          "short_desc": "Alpha Pvt Ltd., India.",
+          "long_desc": "Alpha Pvt Ltd., India. provides online dispute resolution services. Out platform facilitates easy access to high quality service providers which helps avoid hassles of court, saving time and money and relationships.",
+          "additional_desc": {
+            "url": "https://www.alpha.com/content/aboutus"
+          }
         },
         "categories": [
           {
             "id": "ODRCAT001",
             "descriptor": {
-              "code": "conciliation-service",
-              "name": "Conciliation Service"
+              "code": "civil-dispute",
+              "name": "Civil Dispute"
             }
           },
           {
             "id": "ODRCAT002",
             "descriptor": {
-              "code": "arbitration-service",
-              "name": "Arbitration Service"
+              "code": "financial-dispute",
+              "name": "Financial Dispute"
             }
           },
           {
             "id": "ODRCAT003",
             "descriptor": {
-              "code": "Mediation Service",
-              "name": "Mediation Service"
+              "code": "employment-dispute",
+              "name": "Employment Dispute"
+            }
+          },
+          {
+            "id": "ODRCAT004",
+            "descriptor": {
+              "code": "commercial-dispute",
+              "name": "Commercial Dispute"
+            }
+          },
+          {
+            "id": "ODRCAT005",
+            "descriptor": {
+              "code": "family-dispute",
+              "name": "Family Dispute"
             }
           }
         ],
@@ -64,91 +81,122 @@
           {
             "id": "ALPHA-ARB-01",
             "descriptor": {
+              "code": "arbitration-service",
               "name": "Arbitration Services"
             },
             "category_ids": [
-              "ODRCAT002"
+              "ODRCAT001",
+              "ODRCAT002",
+              "ODRCAT003",
+              "ODRCAT004",
+              "ODRCAT005"
             ],
-            "xinput": {
-              "head": {
+            "add_ons": [
+              {
+                "id": "ALPHA-ARB-01-COU",
                 "descriptor": {
-                  "name": "Case Information"
-                },
-                "index": {
-                  "min": 0,
-                  "cur": 0,
-                  "max": 0
-                },
-                "headings": [
-                  "Case Information"
-                ]
+                  "code": "counselling-service",
+                  "name": "Counselling Services"
+                }
               },
-              "form": {
-                "mime_type": "text/html",
-                "url": "https://6vs8xnx5i7.alpha.co.in/upload-case-files/xinput/formid/a23f2fdfbbb8ac402bfd54f"
-              },
-              "required": true
-            }
+              {
+                "id": "ALPHA-ARB-01-TRA",
+                "descriptor": {
+                  "code": "transcription-service",
+                  "name": "Transcription Services"
+                }
+              }
+            ]
           },
           {
             "id": "ALPHA-CONC-01",
             "descriptor": {
+              "code": "conciliation-service",
               "name": "Conciliation Services"
             },
             "category_ids": [
-              "ODRCAT001"
+              "ODRCAT001",
+              "ODRCAT002",
+              "ODRCAT003",
+              "ODRCAT004",
+              "ODRCAT005"
             ],
-            "xinput": {
-              "head": {
+            "add_ons": [
+              {
+                "id": "ALPHA-CONC-01-COU",
                 "descriptor": {
-                  "name": "Case Information"
-                },
-                "index": {
-                  "min": 0,
-                  "cur": 0,
-                  "max": 0
-                },
-                "headings": [
-                  "Case Information"
-                ]
+                  "code": "counselling-service",
+                  "name": "Counselling Services"
+                }
               },
-              "form": {
-                "mime_type": "text/html",
-                "url": "https://6vs8xnx5i7.alpha.co.in/upload-case-files/xinput/formid/a23f2fdfbbb8ac402bfd54f"
-              },
-              "required": true
-            }
+              {
+                "id": "ALPHA-CONC-01-TRA",
+                "descriptor": {
+                  "code": "transcription-service",
+                  "name": "Transcription Services"
+                }
+              }
+            ]
           },
           {
             "id": "ALPHA-MED-01",
             "descriptor": {
+              "code": "mediation-service",
               "name": "Mediation Services"
             },
             "category_ids": [
-              "ODRCAT003"
+              "ODRCAT002",
+              "ODRCAT004",
+              "ODRCAT005"
             ],
-            "xinput": {
-              "head": {
+            "add_ons": [
+              {
+                "id": "ALPHA-MED-01-COU",
                 "descriptor": {
-                  "name": "Case Information"
-                },
-                "index": {
-                  "min": 0,
-                  "cur": 0,
-                  "max": 0
-                },
-                "headings": [
-                  "Case Information"
-                ]
+                  "code": "counselling-service",
+                  "name": "Counselling Services"
+                }
               },
-              "form": {
-                "mime_type": "text/html",
-                "url": "https://6vs8xnx5i7.alpha.co.in/upload-case-files/xinput/formid/a23f2fdfbbb8ac402bfd54f"
-              },
-              "required": true
-            }
+              {
+                "id": "ALPHA-MED-01-TRA",
+                "descriptor": {
+                  "code": "transcription-service",
+                  "name": "Transcription Services"
+                }
+              }
+            ]
           }
-        ]
+        ],
+        "offers": [
+          {
+            "descriptor": {
+              "name": "Offers on services"
+            },
+            "category_ids": [
+              "ODRCAT004",
+              "ODRCAT005"
+            ],
+            "item_ids": [
+              "ALPHA-MED-01",
+              "ALPHA-ARB-01"
+            ]
+          }
+        ],
+        "tags": {
+          "descriptor": {
+            "code": "provider-info",
+            "name": "Provider Information"
+          },
+          "list": [
+            {
+              "descriptor": {
+                "code": "area-of-expertise",
+                "name": "Area of expertise"
+              },
+              "value": "Financial Disputes, Commercial Disputes"
+            }
+          ]
+        }
       }
     ]
   }

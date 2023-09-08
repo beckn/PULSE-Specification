@@ -34,41 +34,31 @@
         }
       ],
       "billing": {
-        "name": "Secure Insurance Co",
-        "email": "alisha.sharma@example.com"
+        "name": "John Doe",
+        "email": "john.doe@example.com",
+        "address": "21A, ABC Appartments, HSR Layout, Bengaluru",
+        "city": "Bengaluru"
       },
       "fulfillments": [
         {
           "customer": {
             "person": {
-              "name": "John Doe",
-              "tags": [
-                {
-                  "descriptor": {
-                    "name": "Address"
-                  },
-                  "list": [
-                    {
-                      "descriptor": {
-                        "name": "Address"
-                      },
-                      "value": "21A, ABC Appartments, HSR Layout, Bengaluru"
-                    },
-                    {
-                      "descriptor": {
-                        "name": "Area code"
-                      },
-                      "value": "560102"
-                    }
-                  ]
-                }
-              ]
+              "name": "John Doe"
             },
             "contact": {
               "phone": "+91-9999999999",
               "email": "john.doe@example.com"
             }
           }
+        }
+      ],
+      "payments": [
+        {
+          "params": {
+            "amount": "12000",
+            "currency": "INR"
+          },
+          "status": "PAID"
         }
       ]
     }
