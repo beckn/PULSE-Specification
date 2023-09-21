@@ -18,7 +18,7 @@
     "timestamp": "2023-05-25T05:23:03.443Z"
   },
   "message": {
-    "update_target": "fulfillments.agent",
+    "update_target": "order.fulfillments[0].agent",
     "order": {
       "id": "66b7b9bad166",
       "fulfillments": [

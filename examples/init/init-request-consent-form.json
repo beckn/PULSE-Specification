@@ -24,7 +24,13 @@
       },
       "items": [
         {
-          "id": "ALPHA-ARB-01"
+          "id": "ALPHA-ARB-01",
+          "xinput": {
+            "form_response": {
+              "status": true,
+              "submission_id": "c844d5f4-29c3-4398-b594-8b4716ef5dbf"
+            }
+          }
         }
       ],
       "billing": {

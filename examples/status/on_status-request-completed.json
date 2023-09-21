@@ -139,7 +139,7 @@
         {
           "fulfillment_state": {
             "descriptor": {
-              "code": "dispute-hearing-in-progress"
+              "code": "complaint-resolved"
             }
           },
           "cancellation_fee": {
