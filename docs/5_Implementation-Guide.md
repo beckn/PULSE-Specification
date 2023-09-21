@@ -17,7 +17,7 @@ The following recommendations need to be considered when implementing discovery 
 - REQUIRED. If the BPP wants to group its ODR services under a specific category, it must map each category to the `Category` schema
 - REQUIRED. Any service fulfillment related information MUST be mapped to the `Fulfillment` schema.
 - REQUIRED. If the BPP does not want to respond to a search request, it MUST return a `ack.status` value equal to `NACK`
-- RECOMMENDED. Upon receiving a `search` request, the BPP SHOULD return a catalog that best matches the intent. This can be done by indexing the catalog against the various probable paths in the `Intent` schema relevant to typical financial service use cases
+- RECOMMENDED. Upon receiving a `search` request, the BPP SHOULD return a catalog that best matches the intent. This can be done by indexing the catalog against the various probable paths in the `Intent` schema relevant to typical ODR service use cases
 
 ### 5.1.2 Recommendations for BAPs
 
