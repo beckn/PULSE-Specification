@@ -1,4 +1,4 @@
-## A Generic Workflow for a Decentralized Credit Application
+## A Generic Workflow for a Unified ODR service
 
 ### Overview
 
