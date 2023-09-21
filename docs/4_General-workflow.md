@@ -1,6 +1,6 @@
-## 4. A General Workflow for Availing Online Dispute Resolution services
+## A General Workflow for Availing Online Dispute Resolution services
 
-### 4.1 Overview
+### Overview
 
 Any Online Dispute Resolution services application consists of the following flow.
 
