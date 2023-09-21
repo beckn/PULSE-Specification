@@ -8,7 +8,7 @@
     },
     "transaction_id": "a9aaecca-10b7-4d19-b640-b047a7c62196",
     "message_id": "$bb579fb8-cb82-4824-be12-fcbc405b6608",
-    "action": "on_confirm",
+    "action": "on_update",
     "timestamp": "2023-05-25T05:23:03.443Z",
     "version": "1.1.0",
     "bap_uri": "https://odr-network-bap.becknprotocol.io/",
@@ -49,25 +49,11 @@
       "quote": {
         "price": {
           "currency": "INR",
-          "value": "12500"
+          "value": "1500"
         },
         "breakup": [
           {
-            "title": "Base fee",
-            "price": {
-              "value": "7000",
-              "currency": "INR"
-            }
-          },
-          {
-            "title": "Agent fees",
-            "price": {
-              "value": "5000",
-              "currency": "INR"
-            }
-          },
-          {
-            "title": "Fee per hearing",
+            "title": "Fee for 3 hearings",
             "price": {
               "value": "500",
               "currency": "INR"
@@ -100,8 +86,8 @@
           },
           "state": {
             "descriptor": {
-              "code": "arbitration-confirmed",
-              "name": "Dispute Order Confirmed"
+              "code": "hearing-date-updated",
+              "name": "Hearing date has been updated"
             }
           },
           "stops": [
@@ -115,6 +101,15 @@
                   }
                 ]
               }
+            },
+            {
+              "time": {
+                "label": "Hearing Date",
+                "Range": {
+                  "start": "2023-06-27T00:00:00.00Z",
+                  "end": "2023-08-02T00:00:00.00Z"
+                }
+              }
             }
           ]
         }
@@ -123,10 +118,11 @@
         {
           "type": "ON-ORDER",
           "params": {
-            "amount": "12000",
+            "amount": "1500",
             "currency": "INR"
           },
-          "status": "PAID",
+          "status": "NOT-PAID",
+          "url": "https://payment.alphaodr.in?amount=1500",
           "time": {
             "range": {
               "start": "01-06-2023 00:00:00",

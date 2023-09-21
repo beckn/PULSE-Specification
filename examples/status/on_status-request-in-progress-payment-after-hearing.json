@@ -100,8 +100,8 @@
           },
           "state": {
             "descriptor": {
-              "code": "arbitration-in-progress",
-              "name": "Arbitration In Progress"
+              "code": "partial-payment",
+              "name": "Partial payment needs to be made after the hearing"
             }
           },
           "stops": [
