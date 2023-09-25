@@ -1,4 +1,4 @@
-# Online Dispute Resolution Protocol
+# Dispute Resolution Protocol
 
 ## Introduction
 
@@ -6,7 +6,7 @@
 
 ODR is a wide field. The application of ODR is not limited to disputes arising out of business to consumer (B2C) online transactions, although it seems to be particularly apt for these disputes, since it is logical to use the same medium (the internet) for the resolution of e-commerce disputes when parties are frequently located far from one another. It is believed that efficient mechanisms to resolve online disputes will impact in the development of e-commerce. However, it may be applied to a range of disputes; from interpersonal disputes including consumer to consumer disputes (C2C) or marital separation; to court disputes and even interstate conflicts.  
 
-The **Dispute Resolution Protocol Specification** (a.k.a DROP) is an adaptation of [beckn protocol](https://github.com/beckn/protocol-specifications) that aims to unify various online dispute resolution services through an interoperable API specification.
+The **Dispute Resolution Protocol Specification** (a.k.a DRoP) is an adaptation of [beckn protocol](https://github.com/beckn/protocol-specifications) that aims to unify various online dispute resolution services through an interoperable API specification.
 
 ## Release History
 
