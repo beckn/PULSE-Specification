@@ -1,8 +1,8 @@
 # Implementation Guide
 
-This document contains the REQUIRED and RECOMMENDED standard functionality that must be implemented by any Online Dispute Resolution Platform a.k.a BPPs and User Platforms a.k.a BAPs.
+This document contains the REQUIRED and RECOMMENDED standard functionality that must be implemented by any BPPs and BAPs in the ODR ecosystem.
 
-The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED", "MAY", and "OPTIONAL" in this document are to be interpreted as described in [RFC2119](https://datatracker.ietf.org/doc/html/rfc2119) from IETF.
+The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED", "MAY", and "OPTIONAL" in this document are to be interpreted as described in [BECKN-010](https://github.com/beckn/protocol-specifications/blob/draft/docs/BECKN-010-Keyword-Definitions-for-Technical-Specifications.md) from core specifications.
 
 ## 5.1 Discovery of ODR services
 
