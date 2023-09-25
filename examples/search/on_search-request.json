@@ -1,0 +1,205 @@
+{
+  "context": {
+    "domain": "online-dispute-resolution:0.1.0",
+    "location": {
+      "country": {
+        "code": "IND"
+      }
+    },
+    "transaction_id": "a9aaecca-10b7-4d19-b640-b047a7c62196",
+    "message_id": "$bb579fb8-cb82-4824-be12-fcbc405b6608",
+    "action": "on_search",
+    "timestamp": "2023-05-25T05:23:03.443Z",
+    "version": "1.1.0",
+    "bap_uri": "https://odr-network-bap.becknprotocol.io/",
+    "bap_id": "odr-bap.becknprotocol.io",
+    "bpp_id": "alpha-odr-bpp.becknprotocol.io",
+    "bpp_uri": "https://alpha-odr-network-bpp.becknprotocol.io",
+    "ttl": "PT10M"
+  },
+  "message": {
+    "catalog": {
+      "descriptor": {
+        "name": "Online Dispute Resolution Services"
+      }
+    },
+    "provider": [
+      {
+        "id": "ODR001",
+        "descriptor": {
+          "images": [
+            {
+              "url": "https://www.alpha.com/content/dam/alpha/india/assets/images/header/logo.png",
+              "size_type": "xs"
+            }
+          ],
+          "name": "Alpha",
+          "short_desc": "Alpha Pvt Ltd., India.",
+          "long_desc": "Alpha Pvt Ltd., India. provides online dispute resolution services. Out platform facilitates easy access to high quality service providers which helps avoid hassles of court, saving time and money and relationships.",
+          "additional_desc": {
+            "url": "https://www.alpha.com/content/aboutus"
+          }
+        },
+        "categories": [
+          {
+            "id": "ODRCAT001",
+            "descriptor": {
+              "code": "civil-dispute",
+              "name": "Civil Dispute"
+            }
+          },
+          {
+            "id": "ODRCAT002",
+            "descriptor": {
+              "code": "financial-dispute",
+              "name": "Financial Dispute"
+            }
+          },
+          {
+            "id": "ODRCAT003",
+            "descriptor": {
+              "code": "employment-dispute",
+              "name": "Employment Dispute"
+            }
+          },
+          {
+            "id": "ODRCAT004",
+            "descriptor": {
+              "code": "commercial-dispute",
+              "name": "Commercial Dispute"
+            }
+          },
+          {
+            "id": "ODRCAT005",
+            "descriptor": {
+              "code": "family-dispute",
+              "name": "Family Dispute"
+            }
+          }
+        ],
+        "items": [
+          {
+            "id": "ALPHA-ARB-01",
+            "descriptor": {
+              "code": "arbitration-service",
+              "name": "Arbitration Services"
+            },
+            "category_ids": [
+              "ODRCAT001",
+              "ODRCAT002",
+              "ODRCAT003",
+              "ODRCAT004",
+              "ODRCAT005"
+            ],
+            "add_ons": [
+              {
+                "id": "ALPHA-ARB-01-COU",
+                "descriptor": {
+                  "code": "counselling-service",
+                  "name": "Counselling Services"
+                }
+              },
+              {
+                "id": "ALPHA-ARB-01-TRA",
+                "descriptor": {
+                  "code": "transcription-service",
+                  "name": "Transcription Services"
+                }
+              }
+            ]
+          },
+          {
+            "id": "ALPHA-CONC-01",
+            "descriptor": {
+              "code": "conciliation-service",
+              "name": "Conciliation Services"
+            },
+            "category_ids": [
+              "ODRCAT001",
+              "ODRCAT002",
+              "ODRCAT003",
+              "ODRCAT004",
+              "ODRCAT005"
+            ],
+            "add_ons": [
+              {
+                "id": "ALPHA-CONC-01-COU",
+                "descriptor": {
+                  "code": "counselling-service",
+                  "name": "Counselling Services"
+                }
+              },
+              {
+                "id": "ALPHA-CONC-01-TRA",
+                "descriptor": {
+                  "code": "transcription-service",
+                  "name": "Transcription Services"
+                }
+              }
+            ]
+          },
+          {
+            "id": "ALPHA-MED-01",
+            "descriptor": {
+              "code": "mediation-service",
+              "name": "Mediation Services"
+            },
+            "category_ids": [
+              "ODRCAT002",
+              "ODRCAT004",
+              "ODRCAT005"
+            ],
+            "add_ons": [
+              {
+                "id": "ALPHA-MED-01-COU",
+                "descriptor": {
+                  "code": "counselling-service",
+                  "name": "Counselling Services"
+                }
+              },
+              {
+                "id": "ALPHA-MED-01-TRA",
+                "descriptor": {
+                  "code": "transcription-service",
+                  "name": "Transcription Services"
+                }
+              }
+            ]
+          }
+        ],
+        "offers": [
+          {
+            "descriptor": {
+              "name": "Offers on services"
+            },
+            "category_ids": [
+              "ODRCAT004",
+              "ODRCAT005"
+            ],
+            "item_ids": [
+              "ALPHA-MED-01",
+              "ALPHA-ARB-01"
+            ]
+          }
+        ],
+        "tags": [
+          {
+            "descriptor": {
+              "code": "provider-info",
+              "name": "Provider Information"
+            },
+            "list": [
+              {
+                "descriptor": {
+                  "code": "area-of-expertise",
+                  "name": "Area of expertise"
+                },
+                "value": "Financial Disputes, Commercial Disputes"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}
