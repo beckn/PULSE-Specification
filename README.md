@@ -1,5 +1,4 @@
-# Dispute Resolution Protocol
-
+# Protocol for Unified Legal Services (PULSE)
 ## Introduction
 
 **Online Dispute Resolution (ODR)** is a mechanism to resolve disputes through the use of electronic communication technology. It often uses alternative dispute resolution (ADR) tools such as mediation, conciliation and arbitration. This mechanism not only provides citizens access to efficient and effective dispute resolution mechanisms, it also supports the formal court system by reducing the number of disputes that go to court, in turn helping address pendency in courts.
