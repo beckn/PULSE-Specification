@@ -7,6 +7,8 @@ ODR is a wide field. It can be applied across sectors, dispute types, and jurisd
 
 The PULSE (Protocol for Unified Legal Services) is an adaptation of [beckn protocol](https://github.com/beckn/protocol-specifications) that aims to unify various online dispute resolution services through an interoperable API specification. Implementing DRoP will enable ecosystems/institutions seeking dispute resolution to easily discover and engage with multiple ODR service providers.
 
+This [outcome visualisation](https://docs.google.com/presentation/d/1cmLZCZfasZhUNzVe9AmCif5tZlvk_5_30W8fwGIo0sE/edit?usp=sharing) document provides an example of how the ODR service may be availed by a user and what each stage (Discovery, Ordering, Fulfillment and Post-Fulfillment) entails in the context of ODR.
+
 
 ## Release History
 
@@ -30,6 +32,7 @@ The PULSE (Protocol for Unified Legal Services) is an adaptation of [beckn proto
 ## Implementing the specification
 
 To understanding how to implement the specification click [here](./docs)
+The [parameters document](https://docs.google.com/spreadsheets/d/1BagyiuqsQ0dbl--9S98gBwuFn1maCRioiVxaile29y0/edit?usp=sharing) specifies what information is being collected and sent at each stage of the transaction.  
 
 ## Acknowledgements
 
