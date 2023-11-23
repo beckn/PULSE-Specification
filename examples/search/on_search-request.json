@@ -218,6 +218,23 @@
                 "value": "Financial Disputes, Commercial Disputes"
               }
             ]
+          },
+          {
+            "descriptor": {
+              "code": "service-language",
+              "name": "Service Language"
+            },
+            "list": [
+              {
+                "value": "English"
+              },
+              {
+                "value": "Hindi"
+              },
+              {
+                "value": "Marathi"
+              }
+            ]
           }
         ]
       }
