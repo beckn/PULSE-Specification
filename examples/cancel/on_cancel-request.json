@@ -104,6 +104,10 @@
             "person": {
               "id": "fsjks743DGS",
               "name": "Mr Adam Smith"
+            },
+            "contact" : {
+              "phone" : "+91-7898765665",
+              "email" : "adam.smith@odr.com"
             }
           },
           "state": {
