@@ -25,6 +25,9 @@
       "items": [
         {
           "id": "ALPHA-ARB-01",
+          "category_ids": [
+            "ODRCAT001"
+          ],
           "xinput": {
             "form_response": {
               "status": true,
