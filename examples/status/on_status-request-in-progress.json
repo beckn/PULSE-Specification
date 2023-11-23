@@ -106,7 +106,8 @@
             "descriptor": {
               "code": "arbitration-in-progress",
               "name": "Arbitration In Progress"
-            }
+            },
+            "updated_at" : "2023-11-25T10:23:03.443Z"
           },
           "stops": [
             {

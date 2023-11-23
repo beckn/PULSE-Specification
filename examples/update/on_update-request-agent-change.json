@@ -106,7 +106,8 @@
             "descriptor": {
               "code": "agent-updated",
               "name": "Case agent updated"
-            }
+            },
+            "updated_at" : "2023-11-25T05:30:03.443Z"
           },
           "stops": [
             {

@@ -106,7 +106,8 @@
             "descriptor": {
               "code": "partial-payment",
               "name": "Partial payment needs to be made after the hearing"
-            }
+            },
+            "updated_at" : "2023-11-27T05:40:03.443Z"
           },
           "stops": [
             {

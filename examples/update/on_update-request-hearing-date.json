@@ -106,7 +106,8 @@
             "descriptor": {
               "code": "hearing-date-updated",
               "name": "Hearing date has been updated"
-            }
+            },
+            "updated_at" : "2023-11-25T05:35:03.443Z"
           },
           "stops": [
             {
