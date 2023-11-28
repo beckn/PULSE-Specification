@@ -83,7 +83,7 @@
             "descriptor": {
               "code": "arbitration-service",
               "name": "Arbitration Services",
-              "short_desc" : "Seamless resolution for disputes. Our expert arbitration services ensure fairness and harmony in legal matters, fostering peaceful settlements.",
+              "short_desc" : "Seamless resolution for disputes. Our expert arbitration services ensure fairness and harmony in dispute resolution, fostering peaceful settlements.",
               "long_desc" : "<html><body><p>HarmonyArbitrators specializes in comprehensive arbitration services for civil, family, employment, commercial, and financial disputes.</p><p>Our seasoned arbitrators prioritize efficiency, ensuring fair and impartial resolutions. With a commitment to transparency and client satisfaction, we navigate complexities with professionalism, adhering to ethical standards. Trust HarmonyArbitrators for streamlined processes, timely outcomes, and tailored solutions. We strive not only to resolve disputes but also to leave parties with a sense of harmony and justice. Experience dedicated and effective dispute resolution with HarmonyArbitrators.</p></body></html>",
               "images" : [
                 {
@@ -120,7 +120,7 @@
             "descriptor": {
               "code": "conciliation-service",
               "name": "Conciliation Services",
-              "short_desc" : "HarmonyArbitrators offers expert conciliation services, fostering amicable resolutions for disputes. Trust us for a harmonious legal experience",
+              "short_desc" : "HarmonyArbitrators offers expert conciliation services, fostering amicable resolutions for disputes. Trust us for a harmonious dispute resolution experience",
               "long_desc" : "<html><body><p>HarmonyArbitrators excels in conciliation services, promoting amicable resolutions for :&nbsp;</p><ol><li>civil,</li><li>family,</li><li>employment,</li><li>commercial, and</li><li>financial disputes.</li></ol><p>Our skilled conciliators facilitate constructive dialogue, guiding parties toward mutually beneficial outcomes with a commitment to fairness, transparency, and client satisfaction. Choose HarmonyArbitrators for dedicated, effective, and harmonious dispute resolution.</p></body></html>",
               "images" : [
                 {
@@ -157,8 +157,8 @@
             "descriptor": {
               "code": "mediation-service",
               "name": "Mediation Services",
-              "short_desc" : "Your trusted partner for mediation services. Navigate disputes with our expert mediators for a harmonious legal resolution.",
-              "long_desc" : "<html><body><p>At HarmonyArbitrators, our mediation services are designed to guide you through civil, family, employment, commercial, and financial disputes with skill and compassion. Our experienced mediators foster open communication, facilitating collaborative solutions that prioritize fairness and client satisfaction.</p><p>Trust HarmonyArbitrators for a dedicated, transparent, and effective approach to achieving harmonious resolutions in complex legal matters.</p></body></html>",
+              "short_desc" : "Your trusted partner for mediation services. Navigate disputes with our expert mediators for a harmonious dispute resolution.",
+              "long_desc" : "<html><body><p>At HarmonyArbitrators, our mediation services are designed to guide you through civil, family, employment, commercial, and financial disputes with skill and compassion. Our experienced mediators foster open communication, facilitating collaborative solutions that prioritize fairness and client satisfaction.</p><p>Trust HarmonyArbitrators for a dedicated, transparent, and effective approach to achieving harmonious resolutions in complex arbitration matters.</p></body></html>",
               "images" : [
                 {
                   "url" : "https://imgs.search.brave.com/dP8znd4KG19WF0aZ3xL1B4KCu9ek1bHi6FICyW2GokU/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9zdDIu/ZGVwb3NpdHBob3Rv/cy5jb20vOTcxNDA2/MC80NzgxNS9pLzQ1/MC9kZXBvc2l0cGhv/dG9zXzQ3ODE1MDA1/Mi1zdG9jay1waG90/by1tZWRpYXRpb24t/d29yZC13b29kZW4t/YmxvY2tzLWNvbW11/bmljYXRpb24uanBn"
