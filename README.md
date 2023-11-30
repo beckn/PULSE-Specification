@@ -33,6 +33,7 @@ This protocol will have multifold benefits across the spectrum of stakeholders. 
 
 | Version | Release Date         | Adaptation to Core Spec Version | Authors      |
 | :-----: | -------------------- | ------------------------------- | ------------ |
+|  0.1.2  | 30th November , 2023 | 1.1.0                           | Ravi Prakash |
 |  0.1.1  | 26th September, 2023 | 1.1.0                           | Ravi Prakash |
 |  0.1.0  | 24th September, 2023 | 1.1.0                           | Ravi Prakash |
 
