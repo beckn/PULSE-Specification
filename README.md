@@ -46,3 +46,27 @@ The author(s) of this specification would like to thank the following volunteers
 ## References
 1. https://odr.info
 2. https://en.wikipedia.org/wiki/Online_dispute_resolution
+
+
+## Implementing the specification
+
+To understanding how to implement the specification click [here](./docs)
+
+## Specification Examples
+
+The Specification examples for each sub-domains are given in a detailed format. you can find them as follows:
+1. [ODR](./examples/)
+
+## Setup Sandbox
+Sandbox user guide & Setup instructions are given [here](https://github.com/beckn/beckn-sandbox/blob/main/USER_GUIDE.md)
+
+## Test it yourself
+Import the postman collection containing all these requests [via](https://raw.githubusercontent.com/beckn/beckn-sandbox/main/artefacts/ODR/ODR%20Sandbox%20Latest.postman_collection.json)
+
+OR
+
+[![Run in Postman](https://run.pstmn.io/button.svg)](https://link-to-be-updated.com)
+
+
+## Demo Link
+Here is the Demo Link for the BAP implemented for ODR [click here](https://experience-guide.becknprotocol.io/ODR)
