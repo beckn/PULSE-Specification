@@ -24,7 +24,10 @@
       },
       "items": [
         {
-          "id": "ALPHA-ARB-01"
+          "id": "ALPHA-ARB-01",
+          "category_ids": [
+            "ODRCAT001"
+          ]
         }
       ]
     }

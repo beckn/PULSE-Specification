@@ -104,13 +104,18 @@
             "person": {
               "id": "fsjks743DGS",
               "name": "Mr Adam Smith"
+            },
+            "contact" : {
+              "phone" : "+91-7898765665",
+              "email" : "adam.smith@odr.com"
             }
           },
           "state": {
             "descriptor": {
               "code": "dispute-cancelled",
               "name": "Dispute Order Cancelled"
-            }
+            },
+            "updated_at" : "2023-11-26T05:23:03.443Z"
           }
         }
       ],
@@ -156,7 +161,8 @@
           "mime_type": "application/pdf",
           "url": "https://xyz.com/case-doc/04389d8c-6a50-4664-9c08-4ee45fef44e8.pdf"
         }
-      ]
+      ],
+      "created_at" : "2023-11-25T05:23:03.443Z"
     }
   }
 }

@@ -34,7 +34,16 @@
           "additional_desc": {
             "url": "https://www.alpha.com/content/aboutus"
           }
-        }
+        },
+        "categories": [
+          {
+            "id": "ODRCAT001",
+            "descriptor": {
+              "code": "civil-dispute",
+              "name": "Civil Dispute"
+            }
+          }
+        ]
       },
       "items": [
         {
@@ -43,6 +52,9 @@
             "code": "arbitration-service",
             "name": "Arbitration Services"
           },
+          "category_ids": [
+            "ODRCAT001"
+          ],
           "xinput": {
             "head": {
               "descriptor": {
