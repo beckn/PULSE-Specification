@@ -19,7 +19,7 @@
     "intent": {
       "category": {
         "descriptor": {
-          "code": "arbitration-service"
+          "code": "financial-dispute"
         }
       }
     }
