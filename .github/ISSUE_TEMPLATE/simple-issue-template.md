@@ -7,15 +7,6 @@ assignees: ''
 
 ---
 
-name: Issue simple
-about: Used to standard issue in a simple format.
-title: ''
-labels: ''
-assignees: ''
-
----
-
----
 name: BOC
 about: BOC Community Issues Template
 title: "[BOC] Button for likes"
