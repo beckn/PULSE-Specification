@@ -8,15 +8,6 @@ assignees: ''
 ---
 
 ---
-name: Simple issue template
-about: Describe this issue template's purpose here.
-title: ''
-labels: ''
-assignees: ''
-
----
-
----
 name: Issue simple
 about: Used to standard issue in simple format.
 title: ''
