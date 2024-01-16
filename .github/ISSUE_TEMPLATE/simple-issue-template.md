@@ -7,9 +7,8 @@ assignees: ''
 
 ---
 
----
 name: Issue simple
-about: Used to standard issue in simple format.
+about: Used to standard issue in a simple format.
 title: ''
 labels: ''
 assignees: ''
