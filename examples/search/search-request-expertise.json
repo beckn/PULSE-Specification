@@ -17,12 +17,12 @@
   },
   "message": {
     "intent": {
-      "category": {
+      "item": {
         "descriptor": {
           "code": "arbitration-service"
         }
       },
-      "item": {
+      "category": {
         "descriptor": {
           "name": "financial disputes"
         }

@@ -1,12 +1,11 @@
-# Dispute Resolution Protocol
-
+# Protocol for Unified Legal Services (PULSE)
 ## Introduction
 
 **Online Dispute Resolution (ODR)** is a mechanism to resolve disputes through the use of electronic communication technology. It often uses alternative dispute resolution (ADR) tools such as mediation, conciliation and arbitration. This mechanism not only provides citizens access to efficient and effective dispute resolution mechanisms, it also supports the formal court system by reducing the number of disputes that go to court, in turn helping address pendency in courts.
 
 ODR is a wide field. It can be applied across sectors, dispute types, and jurisdictions for speedier, affordable, accessible dispute resolution. Application of ODR can range from dispute categories such as financial, matrimonial, property, civil disputes to disputes involving varied parties such as consumers/individuals and businesses/organizations. Disputes pending in formal institutions may also be transferred to ODR and ODR can also apply for interstate, or interjurisdictional disputes.
 
-The **Dispute Resolution Protocol Specification** (a.k.a DRoP) is an adaptation of [beckn protocol](https://github.com/beckn/protocol-specifications) that aims to unify various online dispute resolution services through an interoperable API specification. Implementing DRoP will enable ecosystems/institutions seeking dispute resolution to easily discover and engage with multiple ODR service providers.
+The PULSE (Protocol for Unified Legal Services) is an adaptation of [beckn protocol](https://github.com/beckn/protocol-specifications) that aims to unify various online dispute resolution services through an interoperable API specification. Implementing DRoP will enable ecosystems/institutions seeking dispute resolution to easily discover and engage with multiple ODR service providers.
 
 
 ## Release History
