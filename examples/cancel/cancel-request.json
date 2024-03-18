@@ -18,7 +18,7 @@
     "ttl": "PT10M"
   },
   "message": {
-    "order_id": "572BHD23HD",
+    "order_id": "fcbc405b6608",
     "cancellation_reason_id": "5",
     "descriptor": {
       "short_desc": "Dispute dropped"
