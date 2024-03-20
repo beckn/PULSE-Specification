@@ -19,12 +19,10 @@
   },
   "message": {
     "feedback_form": {
-      "xinput": {
         "form": {
           "url": "https://alpha-odr-network-bpp.becknprotocol.io/feedback/portal"
         },
         "required": "false"
-      }
     }
   }
 }
