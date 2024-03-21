@@ -4,4 +4,4 @@
 4. [General-workflow](./4_General-workflow.md)
 5. [Enumerations](./5_Enumerations.md)
 6. Implementation Guide
-    - [PULSE](./implementation-guide/1_PULSE.md)
+    - [DRoP](./implementation-guide/1_DRoP.md)

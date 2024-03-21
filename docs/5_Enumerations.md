@@ -1,7 +1,7 @@
 
 # Domain Enumerations
 
-This documentation outlines the enumerations and their corresponding values utilized within the PULSE API Specification. Enumerations such as FulfillmentType, OrderStatus, PaymentStatus, TrackingStatus are defined alongside their respective states, providing clarity on the status of delivery, orders, payment, tracking and much more within the system. Developers can refer to this document to ensure consistent interpretation and usage of these enumerations throughout their integration within the DRoP usecase.
+This documentation outlines the enumerations and their corresponding values utilized within the DRoP API Specification. Enumerations such as FulfillmentType, OrderStatus, PaymentStatus, TrackingStatus are defined alongside their respective states, providing clarity on the status of delivery, orders, payment, tracking and much more within the system. Developers can refer to this document to ensure consistent interpretation and usage of these enumerations throughout their integration within the DRoP usecase.
 
 Note: The below list is NOT a recommended or required standard. This list will be standardized on the basis of adoption by implementers. 
 
@@ -16,7 +16,7 @@ Note: The below list is NOT a recommended or required standard. This list will b
 | Image.size_type|The size of the image. The network policy can define the default dimensions of each type| xs,sm,md,lg,xl,custom|
 | Payment.collected_by|This field indicates who is the collector of payment. The BAP can set this value to 'bap' if it wants to collect the payment first and settle it to the BPP. If the BPP agrees to those terms, the BPP should not send the payment url. Alternatively, the BPP can set this field with the value 'bpp' if it wants the payment to be made directly.|BAP,BPP|
 | Payment.status| Status of the Payment transaction| PAID,NOT-PAID,PARTIALLY-PAID|
-| Payment.type| This field indicates the type of the payment. BPP can set this value depending on the phase when they need the order payment to be paid by the buyer| On-Order,Pre-Fulfillment,On-Fulfillment,Post-Fulfillment|
+| Payment.type| This field indicates the type of the payment. BPP can set this value depending on the phase when they need the order payment to be paid by the buyer| On-Order,Pre-Fulfillment,Fulfillment-Processing,On-Fulfillment,Post-Fulfillment|
 | Rating.rating_category| Category of the entity being rated| Item,Order,Provider,Fulfillment,Agent,Support|
 | Scalar.type| NA |CONSTANT,VARIABLE|
 | Support.type| This field indicates the type of entity on which support is needed| order,billing,fulfillment|

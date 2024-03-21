@@ -15,7 +15,7 @@ The following recommendations need to be considered when implementing discovery 
 - REQUIRED. The BPP MUST map its services to the `Item` schema.
 - REQUIRED. Any ODR provider-related information like name, logo, short description must be mapped to the `Provider.descriptor` schema
 - REQUIRED. If the BPP wants to group its ODR services under a specific category, it must map each category to the `Category` schema
-- REQUIRED. Any service fulfillment related information MUST be mapped to the `Fulfillment` schema.
+- REQUIRED. Any ODR service fulfillment related information MUST be mapped to the `Fulfillment` schema.
 - REQUIRED. If the BPP does not want to respond to a search request, it MUST return a `ack.status` value equal to `NACK`
 - RECOMMENDED. Upon receiving a `search` request, the BPP SHOULD return a catalog that best matches the intent. This can be done by indexing the catalog against the various probable paths in the `Intent` schema relevant to typical ODR service use cases
 
@@ -162,176 +162,224 @@ The on_search comes from all the providers, The providers have to be mapped to t
     "catalog": {
       "descriptor": {
         "name": "Online Dispute Resolution Services"
-      }
-    },
-    "provider": [
-      {
-        "id": "ODR001",
-        "descriptor": {
-          "images": [
+      },
+      "providers": [
+        {
+          "id": "ODR001",
+          "descriptor": {
+            "name": "Alpha",
+            "short_desc": "Alpha Pvt Ltd., India.",
+            "long_desc": "Alpha Pvt Ltd., India. provides online dispute resolution services. Out platform facilitates easy access to high quality service providers which helps avoid hassles of court, saving time and money and relationships.",
+            "additional_desc": {
+              "url": "https://www.alpha.com/content/aboutus"
+            },
+            "images": [
+              {
+                "url": "https://www.alpha.com/content/dam/alpha/india/assets/images/header/logo.png",
+                "size_type": "xs"
+              }
+            ]
+          },
+          "categories": [
             {
-              "url": "https://www.alpha.com/content/dam/alpha/india/assets/images/header/logo.png",
-              "size_type": "xs"
+              "id": "ODRCAT001",
+              "descriptor": {
+                "code": "civil-dispute",
+                "name": "Civil Dispute"
+              }
+            },
+            {
+              "id": "ODRCAT002",
+              "descriptor": {
+                "code": "financial-dispute",
+                "name": "Financial Dispute"
+              }
+            },
+            {
+              "id": "ODRCAT003",
+              "descriptor": {
+                "code": "employment-dispute",
+                "name": "Employment Dispute"
+              }
+            },
+            {
+              "id": "ODRCAT004",
+              "descriptor": {
+                "code": "commercial-dispute",
+                "name": "Commercial Dispute"
+              }
+            },
+            {
+              "id": "ODRCAT005",
+              "descriptor": {
+                "code": "family-dispute",
+                "name": "Family Dispute"
+              }
             }
           ],
-          "name": "Alpha",
-          "short_desc": "Alpha Pvt Ltd., India.",
-          "long_desc": "Alpha Pvt Ltd., India. provides online dispute resolution services. Out platform facilitates easy access to high quality service providers which helps avoid hassles of court, saving time and money and relationships.",
-          "additional_desc": {
-            "url": "https://www.alpha.com/content/aboutus"
-          }
-        },
-        "categories": [
-          {
-            "id": "ODRCAT001",
-            "descriptor": {
-              "code": "civil-dispute",
-              "name": "Civil Dispute"
-            }
-          },
-          {
-            "id": "ODRCAT002",
-            "descriptor": {
-              "code": "financial-dispute",
-              "name": "Financial Dispute"
-            }
-          },
-          {
-            "id": "ODRCAT003",
-            "descriptor": {
-              "code": "employment-dispute",
-              "name": "Employment Dispute"
-            }
-          },
-          {
-            "id": "ODRCAT004",
-            "descriptor": {
-              "code": "commercial-dispute",
-              "name": "Commercial Dispute"
-            }
-          },
-          {
-            "id": "ODRCAT005",
-            "descriptor": {
-              "code": "family-dispute",
-              "name": "Family Dispute"
-            }
-          }
-        ],
-        "items": [
-          {
-            "id": "ALPHA-ARB-01",
-            "descriptor": {
-              "code": "arbitration-service",
-              "name": "Arbitration Services"
-            },
-            "category_ids": [
-              "ODRCAT001",
-              "ODRCAT002",
-              "ODRCAT003",
-              "ODRCAT004",
-              "ODRCAT005"
-            ],
-            "add_ons": [
-              {
-                "id": "ALPHA-ARB-01-COU",
-                "descriptor": {
-                  "code": "counselling-service",
-                  "name": "Counselling Services"
-                }
+          "items": [
+            {
+              "id": "ALPHA-ARB-01",
+              "descriptor": {
+                "code": "arbitration-service",
+                "name": "Arbitration Services",
+                "short_desc" : "Seamless resolution for disputes. Our expert arbitration services ensure fairness and harmony in dispute resolution, fostering peaceful settlements.",
+                "long_desc" : "<html><body><p>HarmonyArbitrators specializes in comprehensive arbitration services for civil, family, employment, commercial, and financial disputes.</p><p>Our seasoned arbitrators prioritize efficiency, ensuring fair and impartial resolutions. With a commitment to transparency and client satisfaction, we navigate complexities with professionalism, adhering to ethical standards. Trust HarmonyArbitrators for streamlined processes, timely outcomes, and tailored solutions. We strive not only to resolve disputes but also to leave parties with a sense of harmony and justice. Experience dedicated and effective dispute resolution with HarmonyArbitrators.</p></body></html>",
+                "images" : [
+                  {
+                    "url" : "https://imgs.search.brave.com/HJwyZoG5OILiz5APZC6fTdryfIWTfYBw7azIWCFNOag/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9zdDIu/ZGVwb3NpdHBob3Rv/cy5jb20vMTcwMTY1/MS83MTkxL2kvNjAw/L2RlcG9zaXRwaG90/b3NfNzE5MTUxOTEt/c3RvY2stcGhvdG8t/YXJiaXRyYXRpb24t/Y29uY2VwdC5qcGc"
+                  }
+                ]
               },
-              {
-                "id": "ALPHA-ARB-01-TRA",
-                "descriptor": {
-                  "code": "transcription-service",
-                  "name": "Transcription Services"
-                }
-              }
-            ]
-          },
-          {
-            "id": "ALPHA-CONC-01",
-            "descriptor": {
-              "code": "conciliation-service",
-              "name": "Conciliation Services"
-            },
-            "category_ids": [
-              "ODRCAT001",
-              "ODRCAT002",
-              "ODRCAT003",
-              "ODRCAT004",
-              "ODRCAT005"
-            ],
-            "add_ons": [
-              {
-                "id": "ALPHA-CONC-01-COU",
-                "descriptor": {
-                  "code": "counselling-service",
-                  "name": "Counselling Services"
-                }
-              },
-              {
-                "id": "ALPHA-CONC-01-TRA",
-                "descriptor": {
-                  "code": "transcription-service",
-                  "name": "Transcription Services"
-                }
-              }
-            ]
-          },
-          {
-            "id": "ALPHA-MED-01",
-            "descriptor": {
-              "code": "mediation-service",
-              "name": "Mediation Services"
-            },
-            "category_ids": ["ODRCAT002", "ODRCAT004", "ODRCAT005"],
-            "add_ons": [
-              {
-                "id": "ALPHA-MED-01-COU",
-                "descriptor": {
-                  "code": "counselling-service",
-                  "name": "Counselling Services"
-                }
-              },
-              {
-                "id": "ALPHA-MED-01-TRA",
-                "descriptor": {
-                  "code": "transcription-service",
-                  "name": "Transcription Services"
-                }
-              }
-            ]
-          }
-        ],
-        "offers": [
-          {
-            "descriptor": {
-              "name": "Offers on services"
-            },
-            "category_ids": ["ODRCAT004", "ODRCAT005"],
-            "item_ids": ["ALPHA-MED-01", "ALPHA-ARB-01"]
-          }
-        ],
-        "tags": [
-          {
-            "descriptor": {
-              "code": "provider-info",
-              "name": "Provider Information"
-            },
-            "list": [
-              {
-                "descriptor": {
-                  "code": "area-of-expertise",
-                  "name": "Area of expertise"
+              "category_ids": [
+                "ODRCAT001",
+                "ODRCAT002",
+                "ODRCAT003",
+                "ODRCAT004",
+                "ODRCAT005"
+              ],
+              "add_ons": [
+                {
+                  "id": "ALPHA-ARB-01-COU",
+                  "descriptor": {
+                    "code": "counselling-service",
+                    "name": "Counselling Services"
+                  }
                 },
-                "value": "Financial Disputes, Commercial Disputes"
-              }
-            ]
-          }
-        ]
-      }
-    ]
+                {
+                  "id": "ALPHA-ARB-01-TRA",
+                  "descriptor": {
+                    "code": "transcription-service",
+                    "name": "Transcription Services"
+                  }
+                }
+              ]
+            },
+            {
+              "id": "ALPHA-CONC-01",
+              "descriptor": {
+                "code": "conciliation-service",
+                "name": "Conciliation Services",
+                "short_desc" : "HarmonyArbitrators offers expert conciliation services, fostering amicable resolutions for disputes. Trust us for a harmonious dispute resolution experience",
+                "long_desc" : "<html><body><p>HarmonyArbitrators excels in conciliation services, promoting amicable resolutions for :&nbsp;</p><ol><li>civil,</li><li>family,</li><li>employment,</li><li>commercial, and</li><li>financial disputes.</li></ol><p>Our skilled conciliators facilitate constructive dialogue, guiding parties toward mutually beneficial outcomes with a commitment to fairness, transparency, and client satisfaction. Choose HarmonyArbitrators for dedicated, effective, and harmonious dispute resolution.</p></body></html>",
+                "images" : [
+                  {
+                    "url" : "https://imgs.search.brave.com/3sw6gA5m5UDna6snNBMSm3Moh7H55TbK3BR_RhNhZ50/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9oNy5h/bGFteS5jb20vY29t/cGZyL3c2cjQxeS9j/b21pdGUtY29uc3Vs/dGF0aWYtZXQtZGUt/Y29uY2lsaWF0aW9u/LWFjYXMtc2Vydmlj/ZS1hcmJpdGF0aW9u/LXRleHRlLXN1ci1s/ZXMtbm90ZXMtaXNv/bGVlcy1zdXItb2Zm/aWNlLTI0LXc2cjQx/eS5qcGc"
+                  }
+                ]
+              },
+              "category_ids": [
+                "ODRCAT001",
+                "ODRCAT002",
+                "ODRCAT003",
+                "ODRCAT004",
+                "ODRCAT005"
+              ],
+              "add_ons": [
+                {
+                  "id": "ALPHA-CONC-01-COU",
+                  "descriptor": {
+                    "code": "counselling-service",
+                    "name": "Counselling Services"
+                  }
+                },
+                {
+                  "id": "ALPHA-CONC-01-TRA",
+                  "descriptor": {
+                    "code": "transcription-service",
+                    "name": "Transcription Services"
+                  }
+                }
+              ]
+            },
+            {
+              "id": "ALPHA-MED-01",
+              "descriptor": {
+                "code": "mediation-service",
+                "name": "Mediation Services",
+                "short_desc" : "Your trusted partner for mediation services. Navigate disputes with our expert mediators for a harmonious dispute resolution.",
+                "long_desc" : "<html><body><p>At HarmonyArbitrators, our mediation services are designed to guide you through civil, family, employment, commercial, and financial disputes with skill and compassion. Our experienced mediators foster open communication, facilitating collaborative solutions that prioritize fairness and client satisfaction.</p><p>Trust HarmonyArbitrators for a dedicated, transparent, and effective approach to achieving harmonious resolutions in complex arbitration matters.</p></body></html>",
+                "images" : [
+                  {
+                    "url" : "https://imgs.search.brave.com/dP8znd4KG19WF0aZ3xL1B4KCu9ek1bHi6FICyW2GokU/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9zdDIu/ZGVwb3NpdHBob3Rv/cy5jb20vOTcxNDA2/MC80NzgxNS9pLzQ1/MC9kZXBvc2l0cGhv/dG9zXzQ3ODE1MDA1/Mi1zdG9jay1waG90/by1tZWRpYXRpb24t/d29yZC13b29kZW4t/YmxvY2tzLWNvbW11/bmljYXRpb24uanBn"
+                  }
+                ]
+              },
+              "category_ids": [
+                "ODRCAT002",
+                "ODRCAT004",
+                "ODRCAT005"
+              ],
+              "add_ons": [
+                {
+                  "id": "ALPHA-MED-01-COU",
+                  "descriptor": {
+                    "code": "counselling-service",
+                    "name": "Counselling Services"
+                  }
+                },
+                {
+                  "id": "ALPHA-MED-01-TRA",
+                  "descriptor": {
+                    "code": "transcription-service",
+                    "name": "Transcription Services"
+                  }
+                }
+              ]
+            }
+          ],
+          "offers": [
+            {
+              "descriptor": {
+                "name": "Offers on services"
+              },
+              "category_ids": [
+                "ODRCAT004",
+                "ODRCAT005"
+              ],
+              "item_ids": [
+                "ALPHA-MED-01",
+                "ALPHA-ARB-01"
+              ]
+            }
+          ],
+          "tags": [
+            {
+              "descriptor": {
+                "code": "provider-info",
+                "name": "Provider Information"
+              },
+              "list": [
+                {
+                  "descriptor": {
+                    "code": "area-of-expertise",
+                    "name": "Area of expertise"
+                  },
+                  "value": "Financial Disputes, Commercial Disputes"
+                }
+              ]
+            },
+            {
+              "descriptor": {
+                "code": "service-language",
+                "name": "Service Language"
+              },
+              "list": [
+                {
+                  "value": "English"
+                },
+                {
+                  "value": "Hindi"
+                },
+                {
+                  "value": "Marathi"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
   }
 }
 ```
@@ -748,8 +796,7 @@ An example of `confirm` request
         {
           "id": "ALPHA-ARB-01",
           "xinput": {
-            "form_response": {
-              "status": true,
+            "form": {
               "submission_id": "c844d5f4-29c3-4398-b594-8b4716ef5dbf"
             }
           }
@@ -1671,7 +1718,8 @@ An example of `rating` request
     "ratings": [
       {
         "id": "a9aaecca-10b7-4d19-b640-b047a7c621961676906777032",
-        "rating_category": "portal"
+        "rating_category": "portal",
+        "value": "4"
       }
     ]
   }
@@ -1702,12 +1750,10 @@ An example of `on_rating` request
   },
   "message": {
     "feedback_form": {
-      "xinput": {
         "form": {
           "url": "https://alpha-odr-network-bpp.becknprotocol.io/feedback/portal"
         },
         "required": "false"
-      }
     }
   }
 }
@@ -1737,7 +1783,7 @@ An example of `support` request
   },
   "message": {
     "support": {
-      "order_id": "572BHD23HD",
+      "ref_id": "572BHD23HD",
       "phone": "+919876543210",
       "email": "john.doe@gmail.com"
     }
@@ -1769,7 +1815,7 @@ An example of `on_support` request
   },
   "message": {
     "support": {
-      "order_id": "572BHD23HD",
+      "ref_id": "572BHD23HD",
       "phone": "1800 1080",
       "email": "info@alpha.live",
       "url": "https://www.alpha.com/helpdesk"
