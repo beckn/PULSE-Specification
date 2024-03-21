@@ -29,7 +29,13 @@ The following recommendations need to be considered when implementing discovery 
 - REQUIRED. If the `catalog.providers[].items[].xinput.required` field is set to `"true"` , then the BAP MUST NOT fire a `select`, `init` or `confirm` call until the form is submitted and a successful response is received
 - RECOMMENDED. If the `catalog.providers[].items[].xinput.required` field is set to `"false"` , then the BAP SHOULD allow the user to skip filling the form
 
-### Example
+### Discovery Flow
+1. Complainant logs in to the Complainant Platform (BAP) and make a search request by a combination of various properties, i.e service name, service code, service category, price, provider name etc.
+2. Complainant Platform (BAP) sends this search request to the Beckn Gateway(BG).
+3. Gateway broadcasts the search request to all the ODR service provider platform(BPP) registered in the network.
+4. Each of the ODR service provider platforms (BPPs) translate the search intent and send the filtered catalogue directly to the Complainant Platform (BAP) using /on_search asynchronous callback.
+
+### Discovery Example
 
 The search is broadcast to all providers on the network, there will be many providers. The providers could be all the Online Dispute Resolution service providers. The various search request can look something like this.
 
@@ -136,7 +142,7 @@ The search is broadcast to all providers on the network, there will be many prov
 }
 ```
 
-The on_search comes from all the providers, The providers have to be mapped to the provider schema. The `on_search` would look like this.
+The on_search comes from all the ODR service provider platforms (BPPs), The providers in each of the BPPs have to be mapped to the provider schema. The `on_search` would look like this.
 
 ```json
 {
@@ -422,7 +428,20 @@ This section provides recommendations for implementing the APIs related to creat
 
 - REQUIRED. The BAP MUST implement the `on_confirm` endpoint on the url specified in URL specified in the `context.bap_uri` field sent during `on_search`. In case of permissioned networks, this URL MUST match the `Subscriber.url` present on the respective entry in the Network Registry
 
-### 5.2.3 Example Requests
+### 5.2.3 Ordering Workflow
+1. On the Complainant Platform (BAP), the user selects an ODR service from the catalog of a particular BPP. The Complainant Platform (BAP) sends a select request directly to the choosen ODR service provider platform (BPP)
+2. The ODR service provider Platform (BPP) sends the service details with a quote for the selected ODR service in an asynchronous on_select callback to the Complainant Platform (BAP).
+3. The user submits the complainant information to the ODR service provider platform (BPP) using an init call.
+4. The ODR service provider Platform (BPP) sends a draft dispute order in on_init callback to the Complainant Platform (BAP). The BPP also sends an xinput form as part of this callback, asking the user to provide the respondent details in the form.
+  Note: The xinput form is submitted off the Beckn network. Upon submission of the form, the user gets a submission id. It is required that the Complainant Platform (BAP) sends the submission id in the next call it makes to the ODR service provider Platform (BPP). This will apply for every time the Complainant Platform (BAP) gets an xinput form from the ODR service provider Platform (BPP).
+5. The user submits the respondent details(off the Beckn network). The Complainant Platform (BAP) then sends the submission id to the ODR service provider Platform (BPP) using an init call.
+6. The ODR service provider Platform (BPP) sends a draft dispute order in on_init callback to the Complainant Platform (BAP), with an xinput form, asking for consent details.
+7. The user submits the consent details(off the Beckn network). The Complainant Platform (BAP) sends the submission id to the ODR service provider Platform (BPP) using another init call.
+8. The ODR service provider Platform (BPP) sends a draft dispute order in on_init callback to the Complainant Platform (BAP), with an xinput form, asking for dispute details and payment.
+9. The user agrees to the dispute order, submits the dispute details(off the network) and completes the payment. The Complainant Platform (BAP) then sends the submission id and the payment reference number to the ODR service provider platform (BPP) using confirm call.
+10. The ODR service provider Platform (BPP) sends a confirmed dispute application in on_confirm callback to Complainant Platform (BAP), with the status information of the order.
+
+### 5.2.4 Ordering Examples
 
 An example of `select` request
 
@@ -538,7 +557,7 @@ An example of `on_select` request
 }
 ```
 
-An example of `init` request
+An example of `init` request with complainant details
 
 ```json
 {
@@ -594,7 +613,395 @@ An example of `init` request
 }
 ```
 
-An example of `on_init` request
+An example of an `on_init` request asking for respondent details
+
+```json
+{
+  "context": {
+    "domain": "online-dispute-resolution:0.1.0",
+    "location": {
+      "country": {
+        "code": "IND"
+      }
+    },
+    "transaction_id": "a9aaecca-10b7-4d19-b640-b047a7c62196",
+    "message_id": "$bb579fb8-cb82-4824-be12-fcbc405b6608",
+    "action": "on_init",
+    "timestamp": "2023-05-25T05:23:03.443Z",
+    "version": "1.1.0",
+    "bap_uri": "https://odr-network-bap.becknprotocol.io/",
+    "bap_id": "odr-bap.becknprotocol.io",
+    "bpp_id": "alpha-odr-bpp.becknprotocol.io",
+    "bpp_uri": "https://alpha-odr-network-bpp.becknprotocol.io",
+    "ttl": "PT10M"
+  },
+  "message": {
+    "order": {
+      "provider": {
+        "id": "ODR001",
+        "descriptor": {
+          "images": [
+            {
+              "url": "https://www.alpha.com/content/dam/alpha/india/assets/images/header/logo.png",
+              "size_type": "xs"
+            }
+          ],
+          "name": "Alpha",
+          "short_desc": "Alpha Pvt Ltd., India.",
+          "long_desc": "Alpha Pvt Ltd., India. provides online dispute resolution services. Out platform facilitates easy access to high quality service providers which helps avoid hassles of court, saving time and money and relationships.",
+          "additional_desc": {
+            "url": "https://www.alpha.com/content/aboutus"
+          }
+        },
+        "categories": [
+          {
+            "id": "ODRCAT001",
+            "descriptor": {
+              "code": "civil-dispute",
+              "name": "Civil Dispute"
+            }
+          }
+        ]
+      },
+      "items": [
+        {
+          "id": "ALPHA-ARB-01",
+          "descriptor": {
+            "code": "arbitration-service",
+            "name": "Arbitration Services"
+          },
+          "category_ids": [
+            "ODRCAT001"
+          ],
+          "xinput": {
+            "head": {
+              "descriptor": {
+                "name": "Respondent Details"
+              },
+              "index": {
+                "min": 0,
+                "cur": 0,
+                "max": 2
+              },
+              "headings": [
+                "Respondent Details",
+                "Consent Form",
+                "Dispute Details"
+              ]
+            },
+            "form": {
+              "mime_type": "text/html",
+              "url": "https://6vs8xnx5i7.alpha.co.in/agreement/xinput/formid/a23f2fdfbbb8ac402bfd54f"
+            },
+            "required": true
+          }
+        }
+      ],
+      "quote": {
+        "price": {
+          "currency": "INR",
+          "value": "2500"
+        },
+        "breakup": [
+          {
+            "title": "Base fee",
+            "price": {
+              "value": "2000",
+              "currency": "INR"
+            }
+          },
+          {
+            "title": "Fee per hearing",
+            "price": {
+              "value": "500",
+              "currency": "INR"
+            }
+          }
+        ]
+      },
+      "billing": {
+        "name": "John Doe",
+        "email": "john.doe@example.com",
+        "address": "21A, ABC Appartments, HSR Layout, Bengaluru",
+        "city": "Bengaluru"
+      },
+      "fulfillments": [
+        {
+          "customer": {
+            "person": {
+              "name": "John Doe"
+            },
+            "contact": {
+              "phone": "+91-9999999999",
+              "email": "john.doe@example.com"
+            }
+          }
+        }
+      ]
+    }
+  }
+}
+```
+
+An example of `init` request after submitting the respondent details
+
+```json
+{
+  "context": {
+    "domain": "online-dispute-resolution:0.1.0",
+    "location": {
+      "country": {
+        "code": "IND"
+      }
+    },
+    "transaction_id": "a9aaecca-10b7-4d19-b640-b047a7c62196",
+    "message_id": "$bb579fb8-cb82-4824-be12-fcbc405b6608",
+    "action": "init",
+    "timestamp": "2023-05-25T05:23:03.443Z",
+    "version": "1.1.0",
+    "bap_uri": "https://odr-network-bap.becknprotocol.io/",
+    "bap_id": "odr-bap.becknprotocol.io",
+    "bpp_id": "alpha-odr-bpp.becknprotocol.io",
+    "bpp_uri": "https://alpha-odr-network-bpp.becknprotocol.io",
+    "ttl": "PT10M"
+  },
+  "message": {
+    "order": {
+      "provider": {
+        "id": "ODR001"
+      },
+      "items": [
+        {
+          "id": "ALPHA-ARB-01",
+          "category_ids": [
+            "ODRCAT001"
+          ],
+          "xinput": {
+            "form": {
+              "submission_id": "c844d5f4-29c3-4398-b594-8b4716ef5dbf"
+            }
+          }
+        }
+      ],
+      "billing": {
+        "name": "John Doe",
+        "email": "john.doe@example.com",
+        "address": "21A, ABC Appartments, HSR Layout, Bengaluru",
+        "city": "Bengaluru"
+      },
+      "fulfillments": [
+        {
+          "customer": {
+            "person": {
+              "name": "John Doe"
+            },
+            "contact": {
+              "phone": "+91-9999999999",
+              "email": "john.doe@example.com"
+            }
+          }
+        }
+      ]
+    }
+  }
+}
+```
+
+An example of an `on_init` request asking for consent details
+
+```json
+{
+  "context": {
+    "domain": "online-dispute-resolution:0.1.0",
+    "location": {
+      "country": {
+        "code": "IND"
+      }
+    },
+    "transaction_id": "a9aaecca-10b7-4d19-b640-b047a7c62196",
+    "message_id": "$bb579fb8-cb82-4824-be12-fcbc405b6608",
+    "action": "on_init",
+    "timestamp": "2023-05-25T05:23:03.443Z",
+    "version": "1.1.0",
+    "bap_uri": "https://odr-network-bap.becknprotocol.io/",
+    "bap_id": "odr-bap.becknprotocol.io",
+    "bpp_id": "alpha-odr-bpp.becknprotocol.io",
+    "bpp_uri": "https://alpha-odr-network-bpp.becknprotocol.io",
+    "ttl": "PT10M"
+  },
+  "message": {
+    "order": {
+      "provider": {
+        "id": "ODR001",
+        "descriptor": {
+          "images": [
+            {
+              "url": "https://www.alpha.com/content/dam/alpha/india/assets/images/header/logo.png",
+              "size_type": "xs"
+            }
+          ],
+          "name": "Alpha",
+          "short_desc": "Alpha Pvt Ltd., India.",
+          "long_desc": "Alpha Pvt Ltd., India. provides online dispute resolution services. Out platform facilitates easy access to high quality service providers which helps avoid hassles of court, saving time and money and relationships.",
+          "additional_desc": {
+            "url": "https://www.alpha.com/content/aboutus"
+          }
+        },
+        "categories": [
+          {
+            "id": "ODRCAT001",
+            "descriptor": {
+              "code": "civil-dispute",
+              "name": "Civil Dispute"
+            }
+          }
+        ]
+      },
+      "items": [
+        {
+          "id": "ALPHA-ARB-01",
+          "descriptor": {
+            "code": "arbitration-service",
+            "name": "Arbitration Services"
+          },
+          "category_ids": [
+            "ODRCAT001"
+          ],
+          "xinput": {
+            "head": {
+              "descriptor": {
+                "name": "Consent Form"
+              },
+              "index": {
+                "min": 0,
+                "cur": 1,
+                "max": 2
+              },
+              "headings": [
+                "Respondent Details",
+                "Consent Form",
+                "Dispute Details"
+              ]
+            },
+            "form": {
+              "mime_type": "text/html",
+              "url": "https://6vs8xnx5i7.alpha.co.in/agreement/xinput/formid/a23f2fdfbbb8ac402bfd54f"
+            },
+            "required": true
+          }
+        }
+      ],
+      "quote": {
+        "price": {
+          "currency": "INR",
+          "value": "2500"
+        },
+        "breakup": [
+          {
+            "title": "Base fee",
+            "price": {
+              "value": "2000",
+              "currency": "INR"
+            }
+          },
+          {
+            "title": "Fee per hearing",
+            "price": {
+              "value": "500",
+              "currency": "INR"
+            }
+          }
+        ]
+      },
+      "billing": {
+        "name": "John Doe",
+        "email": "john.doe@example.com",
+        "address": "21A, ABC Appartments, HSR Layout, Bengaluru",
+        "city": "Bengaluru"
+      },
+      "fulfillments": [
+        {
+          "customer": {
+            "person": {
+              "name": "John Doe"
+            },
+            "contact": {
+              "phone": "+91-9999999999",
+              "email": "john.doe@example.com"
+            }
+          }
+        }
+      ]
+    }
+  }
+}
+```
+
+An example of `init` request after submitting the consent details
+
+```json
+{
+  "context": {
+    "domain": "online-dispute-resolution:0.1.0",
+    "location": {
+      "country": {
+        "code": "IND"
+      }
+    },
+    "transaction_id": "a9aaecca-10b7-4d19-b640-b047a7c62196",
+    "message_id": "$bb579fb8-cb82-4824-be12-fcbc405b6608",
+    "action": "init",
+    "timestamp": "2023-05-25T05:23:03.443Z",
+    "version": "1.1.0",
+    "bap_uri": "https://odr-network-bap.becknprotocol.io/",
+    "bap_id": "odr-bap.becknprotocol.io",
+    "bpp_id": "alpha-odr-bpp.becknprotocol.io",
+    "bpp_uri": "https://alpha-odr-network-bpp.becknprotocol.io",
+    "ttl": "PT10M"
+  },
+  "message": {
+    "order": {
+      "provider": {
+        "id": "ODR001"
+      },
+      "items": [
+        {
+          "id": "ALPHA-ARB-01",
+          "category_ids": [
+            "ODRCAT001"
+          ],
+          "xinput": {
+            "form": {
+              "submission_id": "c844d5f4-29c3-4398-b594-8b4716ef5dbf"
+            }
+          }
+        }
+      ],
+      "billing": {
+        "name": "John Doe",
+        "email": "john.doe@example.com",
+        "address": "21A, ABC Appartments, HSR Layout, Bengaluru",
+        "city": "Bengaluru"
+      },
+      "fulfillments": [
+        {
+          "customer": {
+            "person": {
+              "name": "John Doe"
+            },
+            "contact": {
+              "phone": "+91-9999999999",
+              "email": "john.doe@example.com"
+            }
+          }
+        }
+      ]
+    }
+  }
+}
+```
+
+An example of an `on_init` request asking for dispute details
 
 ```json
 {
@@ -634,7 +1041,16 @@ An example of `on_init` request
           "additional_desc": {
             "url": "https://www.alpha.com/content/aboutus"
           }
-        }
+        },
+        "categories": [
+          {
+            "id": "ODRCAT001",
+            "descriptor": {
+              "code": "civil-dispute",
+              "name": "Civil Dispute"
+            }
+          }
+        ]
       },
       "items": [
         {
@@ -643,6 +1059,9 @@ An example of `on_init` request
             "code": "arbitration-service",
             "name": "Arbitration Services"
           },
+          "category_ids": [
+            "ODRCAT001"
+          ],
           "xinput": {
             "head": {
               "descriptor": {
@@ -765,7 +1184,7 @@ An example of `on_init` request
 }
 ```
 
-An example of `confirm` request
+An example of `confirm` request after submitting dispute details, sending the payment reference.
 
 ```json
 {
@@ -1041,7 +1460,27 @@ This section contains recommendations for implementing the APIs related to fulfi
 - REQUIRED. The BAP MUST implement the `on_cancel` endpoint on the url specified in URL specified in the `context.bap_uri` field sent during `on_search`. In case of permissioned networks, this URL MUST match the `Subscriber.url` present on the respective entry in the Network Registry
 - REQUIRED. The BAP MUST implement the `cancellation_reasons` endpoint on the url specified in URL specified in the `context.bap_uri` field sent during `on_search`. In case of permissioned networks, this URL MUST match the `Subscriber.url` present on the respective entry in the Network Registry.
 
-### 5.3.4 Example Requests
+### 5.3.4 Fulfillment Flow
+
+### 5.3.4.1 Status Flow
+1. The Complainant Platform (BAP) receives new updates of the dispute status from unsolicted /on_status call from ODR service provider platform(BPP).
+2. In addition to that, the Complainant Platform (BAP) can request for a status update of the dispute by calling the status API of the ODR service provider platform(BPP).
+3. The ODR service provider platform(BPP) provides the dispute status in a /on_status callback to the Complainant Platform (BAP).
+
+### 5.3.4.2 Update Flow
+The specification also provides the capability to update the dispute details for an unresolved dispute ( For eg. requesting for a change in the hearing date).
+1. The Complainant Platform (BAP) calls /update endpoint of the ODR service provider platform(BPP) with the details it wants to update.
+2. The ODR service provider platform(BPP) updates the dispute details and returns the updated dispute details in an /on_update callback to the Complainant Platform (BAP).
+3. In addition to this, the ODR service provider platform(BPP) can also send unsolicited on_update requests to the Complainant Platform (BAP) in case of any updates in the details of the dispute. For example, in case of a case manager is assigned to the dispute, or a hearing date is finalised to the dispute.
+
+### 5.3.4.3 Cancel Flow
+The Complainant can cancel an unresolved dispute as well.
+1. The Complainant Platform (BAP) calls the /get_cancellation_reason endpoint of the ODR service provider platform(BPP).
+2. The ODR service provider platform(BPP) sends a list of cancellation reasons using the /cancellation_reason callback API to the Complainant Platform (BAP).
+3. The Complainant Platform (BAP) selects one of the reasons and calls the /cancel API of the ODR service provider platform(BPP).
+4. The ODR service provider platform(BPP) cancels the dispute and sends cancellation confirmation in /the on_cancel callback to the Complainant Platform (BAP).
+
+### 5.3.5 Fulfillment Examples
 
 An example of `status` request
 
@@ -1690,7 +2129,17 @@ This section contains recommendations for implementing the APIs after fulfilling
 
 - REQUIRED. The BAP MUST implement the `on_support` endpoint on the url specified in URL specified in the `context.bap_uri` field sent during `on_search`. In case of permissioned networks, this URL MUST match the `Subscriber.url` present on the respective entry in the Network Registry
 
-### 5.4.4 Example Requests
+### 5.4.4 Post Fulfillment workflow
+
+### 5.4.4.1 Rating & Feedback Workflow
+1. The Complainant Platform (BAP) can provide various types of rating, i.e, ODR service, support, ODR service provider etc. To submit a rating, the Complainant Platform (BAP) must call the /rating API of the ODR service provider platform(BPP), selecting the type of the rating.
+2. The ODR service provider platform(BPP) sends back a feedback form in the on_rating callback. The user can chose to fill the feedback form.
+
+### 5.4.4.2 Support Workflow
+1. The Complainant Platform (BAP) can create support requests if it faces any issue with the dispute service. To create a support request, Complainant Platform (BAP) must call the /support API of the ODR service provider platform(BPP).
+2. The ODR service provider platform(BPP) sends back the support contact details using the /on_support callback API of the Complainant Platform (BAP).
+
+### 5.4.5 Post Fulfillment Examples
 
 An example of `rating` request
 
