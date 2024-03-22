@@ -2202,7 +2202,7 @@ An example of `on_rating` request
         "form": {
           "url": "https://alpha-odr-network-bpp.becknprotocol.io/feedback/portal"
         },
-        "required": "false"
+        "required": false
     }
   }
 }

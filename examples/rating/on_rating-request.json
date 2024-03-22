@@ -22,7 +22,7 @@
         "form": {
           "url": "https://alpha-odr-network-bpp.becknprotocol.io/feedback/portal"
         },
-        "required": "false"
+        "required": false
     }
   }
 }
