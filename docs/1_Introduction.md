@@ -19,7 +19,7 @@ Recognizing the growth of ODR, multiple ecosystems and institutions are looking 
 
 ## The DRoP Specification
 
-To address some of the above challenges, the ODR community has come together to design a unified protocol for unifiying the dispute resolution ecosystem and unlock the full potential of ODR. DRoP is an adaptation of [Beckn Protocol](https://github.com/beckn/protocol-specifications) that establishes a a framework to arrive at a community-owned data standard for ODR that aims to unify various online dispute resolution services by implementing an interoperable API specification. Implementing the ODR protocol will enable ecosystems/institutions seeking dispute resolution to easily discover and engage with multiple ODR service providers.
+To address some of the above challenges, the ODR community has come together to design a unified protocol for unifiying the dispute resolution ecosystem and unlock the full potential of ODR. DRoP is an adaptation of [Beckn Protocol](https://github.com/beckn/protocol-specifications) that establishes a framework to arrive at a community-owned data standard for ODR that aims to unify various online dispute resolution services by implementing an interoperable API specification. Implementing the ODR protocol will enable ecosystems/institutions seeking dispute resolution to easily discover and engage with multiple ODR service providers.
 
 By virtue of a minimum viable standardized process/steps of communication, it eases the burden of multiple one-to-one integrations of ODR with ecosystems/institutions and also enables continuous sharing of status and updates to the respective ecosystem/institution as mutually decided.
 

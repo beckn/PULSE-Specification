@@ -318,8 +318,7 @@ paths:
                       items:
                         - id: ALPHA-ARB-01
                           xinput:
-                            form_response:
-                              status: true
+                            form:
                               submission_id: c844d5f4-29c3-4398-b594-8b4716ef5dbf
                       billing:
                         name: John Doe
@@ -357,8 +356,7 @@ paths:
                       items:
                         - id: ALPHA-ARB-01
                           xinput:
-                            form_response:
-                              status: true
+                            form:
                               submission_id: c844d5f4-29c3-4398-b594-8b4716ef5dbf
                       billing:
                         name: John Doe
@@ -452,8 +450,7 @@ paths:
                       items:
                         - id: ALPHA-ARB-01
                           xinput:
-                            form_response:
-                              status: true
+                            form:
                               submission_id: c844d5f4-29c3-4398-b594-8b4716ef5dbf
                       billing:
                         name: John Doe
@@ -822,6 +819,7 @@ paths:
                     ratings:
                       - id: a9aaecca-10b7-4d19-b640-b047a7c621961676906777032
                         rating_category: portal
+                        value: "4"
       responses:
         '200':
           description: Acknowledgement of message received after successful validation of schema and signature
@@ -895,7 +893,7 @@ paths:
                     ttl: PT10M
                   message:
                     support:
-                      order_id: 572BHD23HD
+                      ref_id: 572BHD23HD
                       phone: '+919876543210'
                       email: john.doe@gmail.com
       responses:
@@ -977,104 +975,104 @@ paths:
                     catalog:
                       descriptor:
                         name: Online Dispute Resolution Services
-                    provider:
-                      - id: ODR001
-                        descriptor:
-                          images:
-                            - url: https://www.alpha.com/content/dam/alpha/india/assets/images/header/logo.png
-                              size_type: xs
-                          name: Alpha
-                          short_desc: Alpha Pvt Ltd., India.
-                          long_desc: Alpha Pvt Ltd., India. provides online dispute resolution services. Out platform facilitates easy access to high quality service providers which helps avoid hassles of court, saving time and money and relationships.
-                          additional_desc:
-                            url: https://www.alpha.com/content/aboutus
-                        categories:
-                          - id: ODRCAT001
-                            descriptor:
-                              code: civil-dispute
-                              name: Civil Dispute
-                          - id: ODRCAT002
-                            descriptor:
-                              code: financial-dispute
-                              name: Financial Dispute
-                          - id: ODRCAT003
-                            descriptor:
-                              code: employment-dispute
-                              name: Employment Dispute
-                          - id: ODRCAT004
-                            descriptor:
-                              code: commercial-dispute
-                              name: Commercial Dispute
-                          - id: ODRCAT005
-                            descriptor:
-                              code: family-dispute
-                              name: Family Dispute
-                        items:
-                          - id: ALPHA-ARB-01
-                            descriptor:
-                              code: arbitration-service
-                              name: Arbitration Services
-                            category_ids:
-                              - ODRCAT001
-                              - ODRCAT002
-                              - ODRCAT003
-                              - ODRCAT004
-                              - ODRCAT005
-                            add_ons:
-                              - id: ALPHA-ARB-01-COU
-                                descriptor:
-                                  code: counselling-service
-                                  name: Counselling Services
-                              - id: ALPHA-ARB-01-TRA
-                                descriptor:
-                                  code: transcription-service
-                                  name: Transcription Services
-                          - id: ALPHA-CONC-01
-                            descriptor:
-                              code: conciliation-service
-                              name: Conciliation Services
-                            category_ids:
-                              - ODRCAT001
-                              - ODRCAT002
-                              - ODRCAT003
-                              - ODRCAT004
-                              - ODRCAT005
-                            add_ons:
-                              - id: ALPHA-CONC-01-COU
-                                descriptor:
-                                  code: counselling-service
-                                  name: Counselling Services
-                              - id: ALPHA-CONC-01-TRA
-                                descriptor:
-                                  code: transcription-service
-                                  name: Transcription Services
-                          - id: ALPHA-MED-01
-                            descriptor:
-                              code: mediation-service
-                              name: Mediation Services
-                            category_ids:
-                              - ODRCAT002
-                              - ODRCAT004
-                              - ODRCAT005
-                            add_ons:
-                              - id: ALPHA-MED-01-COU
-                                descriptor:
-                                  code: counselling-service
-                                  name: Counselling Services
-                              - id: ALPHA-MED-01-TRA
-                                descriptor:
-                                  code: transcription-service
-                                  name: Transcription Services
-                        offers:
-                          - descriptor:
-                              name: Offers on services
-                            category_ids:
-                              - ODRCAT004
-                              - ODRCAT005
-                            item_ids:
-                              - ALPHA-MED-01
-                              - ALPHA-ARB-01
-                        tags:
+                      providers:
+                        - id: ODR001
+                          descriptor:
+                            images:
+                              - url: https://www.alpha.com/content/dam/alpha/india/assets/images/header/logo.png
+                                size_type: xs
+                            name: Alpha
+                            short_desc: Alpha Pvt Ltd., India.
+                            long_desc: Alpha Pvt Ltd., India. provides online dispute resolution services. Out platform facilitates easy access to high quality service providers which helps avoid hassles of court, saving time and money and relationships.
+                            additional_desc:
+                              url: https://www.alpha.com/content/aboutus
+                          categories:
+                            - id: ODRCAT001
+                              descriptor:
+                                code: civil-dispute
+                                name: Civil Dispute
+                            - id: ODRCAT002
+                              descriptor:
+                                code: financial-dispute
+                                name: Financial Dispute
+                            - id: ODRCAT003
+                              descriptor:
+                                code: employment-dispute
+                                name: Employment Dispute
+                            - id: ODRCAT004
+                              descriptor:
+                                code: commercial-dispute
+                                name: Commercial Dispute
+                            - id: ODRCAT005
+                              descriptor:
+                                code: family-dispute
+                                name: Family Dispute
+                          items:
+                            - id: ALPHA-ARB-01
+                              descriptor:
+                                code: arbitration-service
+                                name: Arbitration Services
+                              category_ids:
+                                - ODRCAT001
+                                - ODRCAT002
+                                - ODRCAT003
+                                - ODRCAT004
+                                - ODRCAT005
+                              add_ons:
+                                - id: ALPHA-ARB-01-COU
+                                  descriptor:
+                                    code: counselling-service
+                                    name: Counselling Services
+                                - id: ALPHA-ARB-01-TRA
+                                  descriptor:
+                                    code: transcription-service
+                                    name: Transcription Services
+                            - id: ALPHA-CONC-01
+                              descriptor:
+                                code: conciliation-service
+                                name: Conciliation Services
+                              category_ids:
+                                - ODRCAT001
+                                - ODRCAT002
+                                - ODRCAT003
+                                - ODRCAT004
+                                - ODRCAT005
+                              add_ons:
+                                - id: ALPHA-CONC-01-COU
+                                  descriptor:
+                                    code: counselling-service
+                                    name: Counselling Services
+                                - id: ALPHA-CONC-01-TRA
+                                  descriptor:
+                                    code: transcription-service
+                                    name: Transcription Services
+                            - id: ALPHA-MED-01
+                              descriptor:
+                                code: mediation-service
+                                name: Mediation Services
+                              category_ids:
+                                - ODRCAT002
+                                - ODRCAT004
+                                - ODRCAT005
+                              add_ons:
+                                - id: ALPHA-MED-01-COU
+                                  descriptor:
+                                    code: counselling-service
+                                    name: Counselling Services
+                                - id: ALPHA-MED-01-TRA
+                                  descriptor:
+                                    code: transcription-service
+                                    name: Transcription Services
+                          offers:
+                            - descriptor:
+                                name: Offers on services
+                              category_ids:
+                                - ODRCAT004
+                                - ODRCAT005
+                              item_ids:
+                                - ALPHA-MED-01
+                                - ALPHA-ARB-01
+                          tags:
                           - descriptor:
                               code: provider-info
                               name: Provider Information
@@ -2656,10 +2654,9 @@ paths:
                     ttl: PT10M
                   message:
                     feedback_form:
-                      xinput:
-                        form:
-                          url: https://alpha-odr-network-bpp.becknprotocol.io/feedback/portal
-                        required: 'false'
+                      form:
+                        url: https://alpha-odr-network-bpp.becknprotocol.io/feedback/portal
+                      required: false
       responses:
         '200':
           description: Acknowledgement of message received after successful validation of schema and signature
@@ -2714,6 +2711,30 @@ paths:
                   $ref: '#/components/schemas/Error'
               required:
                 - context
+            examples:
+              The ODR platform responds with support details:
+                value:
+                  context:
+                    domain: online-dispute-resolution:0.1.0
+                    location:
+                      country:
+                        code: IND
+                    transaction_id: a9aaecca-10b7-4d19-b640-b047a7c62196
+                    message_id: $bb579fb8-cb82-4824-be12-fcbc405b6608
+                    action: on_support
+                    timestamp: '2023-05-25T05:23:03.443Z'
+                    version: 1.1.0
+                    bap_uri: https://odr-network-bap.becknprotocol.io/
+                    bap_id: odr-bap.becknprotocol.io
+                    bpp_id: alpha-odr-bpp.becknprotocol.io
+                    bpp_uri: https://alpha-odr-network-bpp.becknprotocol.io
+                    ttl: PT10M
+                  message:
+                    support:
+                      ref_id: 572BHD23HD
+                      phone: 1800 1080
+                      email: info@alpha.live
+                      url: https://www.alpha.com/helpdesk
       responses:
         '200':
           description: Acknowledgement of message received after successful validation of schema and signature
@@ -2739,30 +2760,6 @@ paths:
                     $ref: '#/components/schemas/Error'
                 required:
                   - message
-              examples:
-                The ODR platform responds with support details:
-                  value:
-                    context:
-                      domain: online-dispute-resolution:0.1.0
-                      location:
-                        country:
-                          code: IND
-                      transaction_id: a9aaecca-10b7-4d19-b640-b047a7c62196
-                      message_id: $bb579fb8-cb82-4824-be12-fcbc405b6608
-                      action: on_support
-                      timestamp: '2023-05-25T05:23:03.443Z'
-                      version: 1.1.0
-                      bap_uri: https://odr-network-bap.becknprotocol.io/
-                      bap_id: odr-bap.becknprotocol.io
-                      bpp_id: alpha-odr-bpp.becknprotocol.io
-                      bpp_uri: https://alpha-odr-network-bpp.becknprotocol.io
-                      ttl: PT10M
-                    message:
-                      support:
-                        order_id: 572BHD23HD
-                        phone: 1800 1080
-                        email: info@alpha.live
-                        url: https://www.alpha.com/helpdesk
 components:
   securitySchemes:
     SubscriberAuth:
@@ -2880,8 +2877,8 @@ components:
         cancelled_by:
           type: string
           enum:
-            - CONSUMER
-            - PROVIDER
+            - COMPLAINANT
+            - ODR-PROVIDER
         reason:
           description: The reason for cancellation
           allOf:
@@ -3721,6 +3718,10 @@ components:
           type: string
         collected_by:
           description: "This field indicates who is the collector of payment. The BAP can set this value to 'bap' if it wants to collect the payment first and  settle it to the BPP. If the BPP agrees to those terms, the BPP should not send the payment url. Alternatively, the BPP can set this field with the value 'bpp' if it wants the payment to be made directly."
+          type: string
+          enum:
+            - BAP
+            - BPP
         url:
           type: string
           description: 'A payment url to be called by the BAP. If empty, then the payment is to be done offline. The details of payment should be present in the params object. If tl_method = http/get, then the payment details will be sent as url params. Two url param values, ```$transaction_id``` and ```$amount``` are mandatory.'
@@ -3752,6 +3753,7 @@ components:
           enum:
             - PRE-ORDER
             - PRE-FULFILLMENT
+            - FULFILLMENT-PROCESSING
             - ON-FULFILLMENT
             - POST-FULFILLMENT
         status:
@@ -3941,32 +3943,6 @@ components:
         value:
           description: 'Rating value given to the object. This can be a single value or can also contain an inequality operator like gt, gte, lt, lte. This can also contain an inequality expression containing logical operators like && and ||.'
           type: string
-    Region:
-      description: Describes an arbitrary region of space. The network policy should contain a published list of supported regions by the network.
-      type: object
-      properties:
-        dimensions:
-          description: 'The number of dimensions that are used to describe any point inside that region. The most common dimensionality of a region is 2, that represents an area on a map. There are regions on the map that can be approximated to one-dimensional regions like roads, railway lines, or shipping lines. 3 dimensional regions are rarer, but are gaining popularity as flying drones are being adopted for various fulfillment services.'
-          type: string
-          enum:
-            - '1'
-            - '2'
-            - '3'
-        type:
-          description: 'The type of region. This is used to specify the granularity of the region represented by this object. Various examples of two-dimensional region types are city, country, state, district, and so on. The network policy should contain a list of all possible region types supported by the network.'
-          type: string
-        name:
-          type: string
-          description: Name of the region as specified on the map where that region exists.
-        code:
-          type: string
-          description: A standard code representing the region. This should be interpreted in the same way by all network participants.
-        boundary:
-          type: string
-          description: 'A string representing the boundary of the region. One-dimensional regions are represented by polylines. Two-dimensional regions are represented by polygons, and three-dimensional regions can represented by polyhedra.'
-        map_url:
-          type: string
-          description: The url to the map of the region. This can be a globally recognized map or the one specified by the network policy.
     ReplacementTerm:
       description: The replacement policy of an item or an order
       type: object
@@ -4003,9 +3979,6 @@ components:
         fulfillment_managed_by:
           description: The entity that will perform the return
           type: string
-          enum:
-            - CONSUMER
-            - PROVIDER
     Scalar:
       description: Describes a scalar
       type: object
@@ -4163,27 +4136,6 @@ components:
           description: comma separated values representing days of the week
         schedule:
           $ref: '#/components/schemas/Schedule'
-    Tracking:
-      description: Contains tracking information that can be used by the BAP to track the fulfillment of an order in real-time. which is useful for knowing the location of time sensitive deliveries.
-      type: object
-      properties:
-        id:
-          description: A unique tracking reference number
-          type: string
-        url:
-          description: 'A URL to the tracking endpoint. This can be a link to a tracking webpage, a webhook URL created by the BAP where BPP can push the tracking data, or a GET url creaed by the BPP which the BAP can poll to get the tracking data. It can also be a websocket URL where the BPP can push real-time tracking data.'
-          type: string
-          format: uri
-        location:
-          description: 'In case there is no real-time tracking endpoint available, this field will contain the latest location of the entity being tracked. The BPP will update this value everytime the BAP calls the track API.'
-          allOf:
-            - $ref: '#/components/schemas/Location'
-        status:
-          description: 'This value indicates if the tracking is currently active or not. If this value is `active`, then the BAP can begin tracking the order. If this value is `inactive`, the tracking URL is considered to be expired and the BAP should stop tracking the order.'
-          type: string
-          enum:
-            - active
-            - inactive
     Vehicle:
       description: 'Describes a vehicle is a device that is designed or used to transport people or cargo over land, water, air, or through space.<br>This has properties like category, capacity, make, model, size,variant,color,energy_type,registration'
       type: object

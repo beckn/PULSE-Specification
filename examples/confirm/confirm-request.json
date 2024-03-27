@@ -29,8 +29,7 @@
             "ODRCAT001"
           ],
           "xinput": {
-            "form_response": {
-              "status": true,
+            "form": {
               "submission_id": "c844d5f4-29c3-4398-b594-8b4716ef5dbf"
             }
           }
